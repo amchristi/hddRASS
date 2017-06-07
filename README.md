@@ -1,4 +1,6 @@
 # hddRASS
+source code is under hddRASS/hdd/src
+
 How To Use:
 Look at hddRASS/HDD/src/Driver/CommonsValidatorDriver class and use a command similar to this. 
 
