@@ -1,0 +1,237 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons JEXL 3.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce-maven-3) @ commons-jexl3 ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.9.1:parse-version (parse-version) @ commons-jexl3 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-jexl3 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- javacc-maven-plugin:2.6:jjtree-javacc (jexl-jjtree) @ commons-jexl3 ---
+[INFO] Skipping - all parsers are up to date
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (default) @ commons-jexl3 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.3:create (default) @ commons-jexl3 ---
+[INFO] Executing: /bin/sh -c cd /home/ubuntu/research/commons-jexl3 && svn --non-interactive info
+[INFO] Working directory: /home/ubuntu/research/commons-jexl3
+[INFO] Storing buildNumber: 1721825 at timestamp: 1487611563221
+[INFO] Executing: /bin/sh -c cd /home/ubuntu/research/commons-jexl3 && svn --non-interactive info
+[INFO] Working directory: /home/ubuntu/research/commons-jexl3
+[INFO] Storing buildScmBranch: tags/COMMONS_JEXL_3_0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-jexl3 ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:compile (default-compile) @ commons-jexl3 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:manifest (bundle-manifest) @ commons-jexl3 ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.14:check (checkAPIcompatibility) @ commons-jexl3 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ commons-jexl3 ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.3:testCompile (default-testCompile) @ commons-jexl3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 57 source files to /home/ubuntu/research/commons-jexl3/target/test-classes
+[INFO] /home/ubuntu/research/commons-jexl3/src/test/java/org/apache/commons/jexl3/junit/Asserter.java: /home/ubuntu/research/commons-jexl3/src/test/java/org/apache/commons/jexl3/junit/Asserter.java uses or overrides a deprecated API.
+[INFO] /home/ubuntu/research/commons-jexl3/src/test/java/org/apache/commons/jexl3/junit/Asserter.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/ubuntu/research/commons-jexl3/src/test/java/org/apache/commons/jexl3/JexlTestCase.java: /home/ubuntu/research/commons-jexl3/src/test/java/org/apache/commons/jexl3/JexlTestCase.java uses unchecked or unsafe operations.
+[INFO] /home/ubuntu/research/commons-jexl3/src/test/java/org/apache/commons/jexl3/JexlTestCase.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ commons-jexl3 ---
+[INFO] Surefire report directory: /home/ubuntu/research/commons-jexl3/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.jexl3.ArithmeticTest
+Feb 20, 2017 9:26:09 AM org.apache.commons.jexl3.JexlEngine operatorError
+WARNING: org.apache.commons.jexl3.ArithmeticTest.runOverload@1:9![9,11]: '(x)->{
+  !x;
+}' error calling operator '!'
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.commons.jexl3.internal.introspection.MethodExecutor.invoke(MethodExecutor.java:93)
+	at org.apache.commons.jexl3.internal.Operators.tryOverload(Operators.java:87)
+	at org.apache.commons.jexl3.internal.Interpreter.visit(Interpreter.java:688)
+	at org.apache.commons.jexl3.parser.ASTNotNode.jjtAccept(ASTNotNode.java:18)
+	at org.apache.commons.jexl3.internal.Interpreter.visit(Interpreter.java:725)
+	at org.apache.commons.jexl3.parser.ASTBlock.jjtAccept(ASTBlock.java:18)
+	at org.apache.commons.jexl3.internal.Interpreter.visit(Interpreter.java:1018)
+	at org.apache.commons.jexl3.parser.ASTJexlScript.jjtAccept(ASTJexlScript.java:55)
+	at org.apache.commons.jexl3.internal.Interpreter.interpret(Interpreter.java:201)
+	at org.apache.commons.jexl3.internal.Script.execute(Script.java:208)
+	at org.apache.commons.jexl3.ArithmeticTest.runOverload(ArithmeticTest.java:550)
+	at org.apache.commons.jexl3.ArithmeticTest.testArithmeticPlusNoCache(ArithmeticTest.java:392)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: java.lang.NullPointerException: make it fail
+	at org.apache.commons.jexl3.ArithmeticPlus.not(ArithmeticPlus.java:103)
+	... 42 more
+
+Feb 20, 2017 9:26:10 AM org.apache.commons.jexl3.JexlEngine operatorError
+WARNING: org.apache.commons.jexl3.ArithmeticTest.runOverload@1:9![9,11]: '(x)->{
+  !x;
+}' error calling operator '!'
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.commons.jexl3.internal.introspection.MethodExecutor.invoke(MethodExecutor.java:93)
+	at org.apache.commons.jexl3.internal.Operators.tryOverload(Operators.java:87)
+	at org.apache.commons.jexl3.internal.Interpreter.visit(Interpreter.java:688)
+	at org.apache.commons.jexl3.parser.ASTNotNode.jjtAccept(ASTNotNode.java:18)
+	at org.apache.commons.jexl3.internal.Interpreter.visit(Interpreter.java:725)
+	at org.apache.commons.jexl3.parser.ASTBlock.jjtAccept(ASTBlock.java:18)
+	at org.apache.commons.jexl3.internal.Interpreter.visit(Interpreter.java:1018)
+	at org.apache.commons.jexl3.parser.ASTJexlScript.jjtAccept(ASTJexlScript.java:55)
+	at org.apache.commons.jexl3.internal.Interpreter.interpret(Interpreter.java:201)
+	at org.apache.commons.jexl3.internal.Script.execute(Script.java:208)
+	at org.apache.commons.jexl3.ArithmeticTest.runOverload(ArithmeticTest.java:550)
+	at org.apache.commons.jexl3.ArithmeticTest.testArithmeticPlus(ArithmeticTest.java:384)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: java.lang.NullPointerException: make it fail
+	at org.apache.commons.jexl3.ArithmeticPlus.not(ArithmeticPlus.java:103)
+	... 42 more
+
+Feb 20, 2017 9:26:10 AM org.apache.commons.jexl3.JexlEngine operatorError
+WARNING: org.apache.commons.jexl3.ArithmeticTest.runOverload@1:9![9,11]: '(x)->{
+  !x;
+}' error calling operator '!'
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.commons.jexl3.internal.introspection.MethodExecutor.invoke(MethodExecutor.java:93)
+	at org.apache.commons.jexl3.internal.Operators.tryOverload(Operators.java:87)
+	at org.apache.commons.jexl3.internal.Interpreter.visit(Interpreter.java:688)
+	at org.apache.commons.jexl3.parser.ASTNotNode.jjtAccept(ASTNotNode.java:18)
+	at org.apache.commons.jexl3.internal.Interpreter.visit(Interpreter.java:725)
+	at org.apache.commons.jexl3.parser.ASTBlock.jjtAccept(ASTBlock.java:18)
+	at org.apache.commons.jexl3.internal.Interpreter.visit(Interpreter.java:1018)
+	at org.apache.commons.jexl3.parser.ASTJexlScript.jjtAccept(ASTJexlScript.java:55)
+	at org.apache.commons.jexl3.internal.Interpreter.interpret(Interpreter.java:201)
+	at org.apache.commons.jexl3.internal.Script.execute(Script.java:208)
+	at org.apache.commons.jexl3.ArithmeticTest.runOverload(ArithmeticTest.java:550)
+	at org.apache.commons.jexl3.ArithmeticTest.testArithmeticPlus(ArithmeticTest.java:385)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: java.lang.NullPointerException: make it fail
+	at org.apache.commons.jexl3.ArithmeticPlus.not(ArithmeticPlus.java:103)
+	... 42 more
+
+Feb 20, 2017 9:26:10 AM org.apache.commons.jexl3.JexlEngine unsolvableVariable
+WARNING: org.apache.commons.jexl3.junit.Asserter.failExpression@1:1![0,17]: 'objects[1].status' undefined variable objects
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.602 sec - in org.apache.commons.jexl3.ArithmeticTest
+
+Results :
+
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:jar (default-jar) @ commons-jexl3 ---
+[INFO] 
+[INFO] --- maven-site-plugin:3.4:attach-descriptor (attach-descriptor) @ commons-jexl3 ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.6:test-jar (default) @ commons-jexl3 ---
+[INFO] Building jar: /home/ubuntu/research/commons-jexl3/target/commons-jexl3-3.0-tests.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 10.778s
+[INFO] Finished at: Mon Feb 20 09:26:11 PST 2017
+[INFO] Final Memory: 27M/92M
+[INFO] ------------------------------------------------------------------------

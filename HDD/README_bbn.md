@@ -1,0 +1,31 @@
+Added to provide instruction on how to run hdd.jar to mutate-reduce programs (class currently). 
+
+I have placed a zip in the root of HDD folder called hdd.zip. unzip it, it contains all the necessary jars to run the command. 
+make sure that you open it under as root user.
+make sure that root user is its owner. 
+then run following command: Make sure that you change following location. If you are runnit it from normtal root/immortals_repo, run as it is or change the location. 
+There are many extra parameters to run it with normal open source java projects but ignore them. 
+Some parameters are redundant and I will remove it going forward. But right now unfortunately, we have to provide them all. 
+
+Userful parameters for our project:
+1. -rootfolder: as shown in the exaple, path before your src starts
+2. -relativePath: path to reach upto your .java file, as provided in example.
+3. -className - Classname
+4. -jarfileNmae - jar file with full path where gradlw command will keept the jar in case your .java file mentioned in -relativepath or classname changes. 
+5. -buildCommand - gradlew command with path in our case. Example provided. 
+6. -packagename - example provided. 
+7. -timeoutForInfiniteLoop - primiteive way to detect infinite loops. If you hit the threshold, we assume that you are in infinite loop. 
+8. -immortalsTester - ScenarioRuneer.py with full path, example provided. 
+
+java -cp "hdd.jar:commons-cli-1.3.1.jar:javaparser-1.0.8.jar:commons-collections4-4.1.jar:junit-4.12.jar:log4j-1.2.17.jar:hamcrest-core-1.3.jar:hamcrest-junit-2.0.0.0.jar:java-hamcrest-2.0.0.0.jar" Driver.ImmortalsDriver -level "method" -rootFolder "/root//immortals_repo/client/ATAKLite" -relativePath "/src/com/bbn/ataklite/MainActivity.java" -methodName "isValid" -className "MainActivity" -jarFileName "provide client jar path with full name(where gradle build will put it)" -testJarFileName "Not needed for immortals" -buildCommand "/root/immortals_repo/.gradlew" -packageName "com.bbn.ataklite" -timeoutForInfiniteLoop 30 -testClassesFilePath "not needed for immortals.Needed in case you want to run just some of the tests from your test suite in JUnit" -immortalsTester "root/immortals_repo/das/infrastructure/immortals/ScenarioRunnerArpit.py" 
+
+
+In case you want to open it in intellij and run it:
+
+Open the HDD folder in Intellij. .iml is there.
+Go to Driver folder.
+Go to ImmortalsDriver clasa and run main from there. 
+
+
+
+

@@ -1,0 +1,20 @@
+package ASTManipulation;
+import java.util.Date.*;
+
+public class ASTManipulation.test {
+
+    public int add(int a, int b) {
+        for (int j = 0; j < 10; j++) {
+            System.out.println(j);
+        }
+        return a + b;
+    }
+
+    public int method(int a, int b) {
+        return 0;
+    }
+
+    public void dymmyMethod(int a) {
+        System.out.println(a);
+    }
+}

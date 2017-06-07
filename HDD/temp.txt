@@ -1,0 +1,49 @@
+***************************************************************
+public class EmbededClass {
+
+    private static class Class2 {
+
+        public static void hello() {
+            Debugger.log("hello world");
+        }
+    }
+
+    public void method123() {
+        Class2.hello();
+    }
+}
+
+testSize
+testToCharArrayIntInt
+testGetChars
+testDeleteAll_StrMatcher
+testTrim
+testSubstringIntInt
+testAsWriter
+testToStringBuffer
+testChaining
+testReadFromCharBuffer
+testDeleteAll_StrMatcher
+testReplaceAll_char_char
+testReplace_StrMatcher_String_int_int_int_VaryReplace
+testSubSequenceIntInt
+testIndexOf_String_int
+testEqualsIgnoreCase
+testToString
+testChaining
+testToCharArray
+testReplace_StrMatcher_String_int_int_int_VaryMatcher
+testContains_char
+testToStringBuilder
+testLang295
+testSize
+testToCharArrayIntInt
+testReplaceAll_char_char
+testIndexOf_StrMatcher
+testReadFromReaderAppendsToEnd
+testLength
+testIsEmpty
+testReplaceFirst_StrMatcher_String
+testSubSequenceIntInt
+testLastIndexOf_char_int
+testAppendToWriter

@@ -1,0 +1,128 @@
+Buildfile: /home/ubuntu/research/cruisecontrol/main/build.xml
+
+logger.jar:
+
+clean:
+   [delete] Deleting directory /home/ubuntu/research/cruisecontrol/main/loggers/target
+
+compile:
+    [mkdir] Created dir: /home/ubuntu/research/cruisecontrol/main/loggers/target/classes
+    [javac] Compiling 4 source files to /home/ubuntu/research/cruisecontrol/main/loggers/target/classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.4
+    [javac] warning: [options] source value 1.4 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.4 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] 4 warnings
+    [mkdir] Created dir: /home/ubuntu/research/cruisecontrol/main/loggers/target/test-classes
+    [javac] Compiling 1 source file to /home/ubuntu/research/cruisecontrol/main/loggers/target/test-classes
+    [javac] warning: [options] bootstrap class path not set in conjunction with -source 1.4
+    [javac] warning: [options] source value 1.4 is obsolete and will be removed in a future release
+    [javac] warning: [options] target value 1.4 is obsolete and will be removed in a future release
+    [javac] warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+    [javac] 4 warnings
+
+test:
+    [mkdir] Created dir: /home/ubuntu/research/cruisecontrol/main/loggers/target/test-results
+    [junit] WARNING: multiple versions of ant detected in path for junit
+    [junit]          jar:file:/usr/share/ant/lib/ant.jar!/org/apache/tools/ant/Project.class
+    [junit]      and jar:file:/home/ubuntu/research/cruisecontrol/main/lib/ant/ant.jar!/org/apache/tools/ant/Project.class
+    [junit] Running net.sourceforge.cruisecontrol.builders.AntOutputLoggerTest
+    [junit] Testsuite: net.sourceforge.cruisecontrol.builders.AntOutputLoggerTest
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.108 sec
+    [junit] Tests run: 5, Failures: 0, Errors: 0, Time elapsed: 0.108 sec
+    [junit]
+    [mkdir] Created dir: /home/ubuntu/research/cruisecontrol/main/loggers/target/test-report
+[junitreport] Processing /home/ubuntu/research/cruisecontrol/main/loggers/target/test-report/TESTS-TestSuites.xml to /tmp/null2026254914
+[junitreport] Loading stylesheet jar:file:/usr/share/ant/lib/ant-junit.jar!/org/apache/tools/ant/taskdefs/optional/junit/xsl/junit-frames.xsl
+[junitreport] Warning: org.apache.xerces.jaxp.SAXParserImpl$JAXPSAXParser: Property 'http://javax.xml.XMLConstants/property/accessExternalDTD' is not recognized.
+[junitreport] Warning: org.apache.xerces.jaxp.SAXParserImpl$JAXPSAXParser: Property 'http://www.oracle.com/xml/jaxp/properties/entityExpansionLimit' is not recognized.
+[junitreport] Transform time: 738ms
+[junitreport] Deleting: /tmp/null2026254914
+
+initVersionInfo:
+
+jar:
+    [mkdir] Created dir: /home/ubuntu/research/cruisecontrol/main/loggers/target/dist
+      [jar] Building jar: /home/ubuntu/research/cruisecontrol/main/loggers/target/dist/cruisecontrol-antprogresslogger.jar
+
+dist:
+     [copy] Copying 1 file to /home/ubuntu/research/cruisecontrol/main/dist
+
+--compile-init:
+
+--compile:
+
+--compile-copy-resources:
+
+-compile:
+
+compile:
+
+--test-init:
+
+--test-unit-init:
+
+--test-unit-compile:
+
+--test-unit-copy-resources:
+
+--test-unit:
+    [junit] WARNING: multiple versions of ant detected in path for junit
+    [junit]          jar:file:/usr/share/ant/lib/ant.jar!/org/apache/tools/ant/Project.class
+    [junit]      and jar:file:/home/ubuntu/research/cruisecontrol/main/lib/ant/ant.jar!/org/apache/tools/ant/Project.class
+    [junit] Running net.sourceforge.cruisecontrol.builders.AntBuilderTest
+    [junit] Testsuite: net.sourceforge.cruisecontrol.builders.AntBuilderTest
+    [junit] Tests run: 21, Failures: 0, Errors: 0, Time elapsed: 8.123 sec
+    [junit] Tests run: 21, Failures: 0, Errors: 0, Time elapsed: 8.123 sec
+    [junit]
+    [junit] ------------- Standard Output ---------------
+    [junit] [cc]Jan-28 21:33:09 ScriptRunner  - Buildfile: /home/ubuntu/research/cruisecontrol/main/target/testbuild5547409869975018586.xml
+    [junit] [cc]Jan-28 21:33:10 ScriptRunner  -
+    [junit] [cc]Jan-28 21:33:10 ScriptRunner  - init:
+    [junit] [cc]Jan-28 21:33:10 ScriptRunner  -      [echo] called testbulid.xml init target
+    [junit] [cc]Jan-28 21:33:10 ScriptRunner  -
+    [junit] [cc]Jan-28 21:33:10 ScriptRunner  - BUILD SUCCESSFUL
+    [junit] [cc]Jan-28 21:33:10 ScriptRunner  - Total time: 0 seconds
+    [junit] [cc]Jan-28 21:33:10 ScriptRunner  - Buildfile: /home/ubuntu/research/cruisecontrol/main/target/testbuild5547409869975018586.xml
+    [junit] [cc]Jan-28 21:33:10 ScriptRunner  -
+    [junit] [cc]Jan-28 21:33:10 ScriptRunner  - init:
+    [junit] [cc]Jan-28 21:33:10 ScriptRunner  -      [echo] called testbulid.xml init target
+    [junit] [cc]Jan-28 21:33:11 ScriptRunner  -
+    [junit] [cc]Jan-28 21:33:11 ScriptRunner  - init:
+    [junit] [cc]Jan-28 21:33:11 ScriptRunner  -      [echo] called testbulid.xml init target
+    [junit] [cc]Jan-28 21:33:11 ScriptRunner  -
+    [junit] [cc]Jan-28 21:33:11 ScriptRunner  - BUILD SUCCESSFUL
+    [junit] [cc]Jan-28 21:33:11 ScriptRunner  - Total time: 0 seconds
+    [junit] [cc]Jan-28 21:33:11 ScriptRunner  - Apache Ant version 1.7.0 compiled on December 13 2006
+    [junit] [cc]Jan-28 21:33:11 ScriptRunner  - Buildfile: /home/ubuntu/research/cruisecontrol/main/target/testbuild2683335707222018942.xml
+    [junit] [cc]Jan-28 21:33:12 AntBuilder    - Build timeout timer of 1 seconds has expired
+    [junit] [cc]Jan-28 21:33:12 ScriptRunner  - Buildfile: /home/ubuntu/research/cruisecontrol/main/target/testbuild2683335707222018942.xml
+    [junit] [cc]Jan-28 21:33:12 ScriptRunner  -
+    [junit] [cc]Jan-28 21:33:12 ScriptRunner  - time.out:
+    [junit] [cc]Jan-28 21:33:13 AntBuilder    - Build timeout timer of 1 seconds has expired
+    [junit] [cc]Jan-28 21:33:13 ScriptRunner  - Buildfile: /tmp/cruisecontroltest1485667993125/build.xml
+    [junit] [cc]Jan-28 21:33:13 ScriptRunner  -
+    [junit] [cc]Jan-28 21:33:13 ScriptRunner  - all:
+    [junit] [cc]Jan-28 21:33:13 ScriptRunner  -     [mkdir] Created dir: /tmp/cruisecontroltest1485667993125/build
+    [junit] [cc]Jan-28 21:33:13 ScriptRunner  -     [javac] Compiling 1 source file to /tmp/cruisecontroltest1485667993125/build
+    [junit] [cc]Jan-28 21:33:14 ScriptRunner  -     [javac] Compiling 1 source file to /tmp/cruisecontroltest1485667993125/build
+    [junit] [cc]Jan-28 21:33:15 ScriptRunner  -     [mkdir] Created dir: /tmp/cruisecontroltest1485667993125/reports/xml
+    [junit] [cc]Jan-28 21:33:16 ScriptRunner  - [junitreport] Processing /tmp/cruisecontroltest1485667993125/TESTS-TestSuites.xml to /tmp/null254033304
+    [junit] [cc]Jan-28 21:33:16 ScriptRunner  - [junitreport] Loading stylesheet jar:file:/home/ubuntu/research/cruisecontrol/main/lib/ant/ant-junit.jar!/org/apache/tools/ant/taskdefs/optional/junit/xsl/junit-frames.xsl
+    [junit] [cc]Jan-28 21:33:16 ScriptRunner  - [junitreport] Warning: org.apache.xerces.jaxp.SAXParserImpl$JAXPSAXParser: Property 'http://javax.xml.XMLConstants/property/accessExternalDTD' is not recognized.
+    [junit] [cc]Jan-28 21:33:16 ScriptRunner  - [junitreport] Warning: org.apache.xerces.jaxp.SAXParserImpl$JAXPSAXParser: Property 'http://www.oracle.com/xml/jaxp/properties/entityExpansionLimit' is not recognized.
+    [junit] [cc]Jan-28 21:33:17 ScriptRunner  - [junitreport] Transform time: 629ms
+    [junit] [cc]Jan-28 21:33:17 ScriptRunner  - [junitreport] Deleting: /tmp/null254033304
+    [junit] [cc]Jan-28 21:33:17 ScriptRunner  -
+    [junit] [cc]Jan-28 21:33:17 ScriptRunner  - BUILD SUCCESSFUL
+    [junit] [cc]Jan-28 21:33:17 ScriptRunner  - Total time: 3 seconds
+    [junit] ------------- ---------------- ---------------
+
+-test-unit:
+
+-test:
+
+test:
+
+BUILD SUCCESSFUL
+Total time: 14 seconds

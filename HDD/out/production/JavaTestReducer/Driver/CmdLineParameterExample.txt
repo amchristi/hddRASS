@@ -1,0 +1,175 @@
+*********** Quikssort Example app ***********************
+
+-level
+method
+-rootFolder
+/home/arpit/research/QuicksortApp
+-relativePath
+/src/com/osustar/Quicksort.java
+-methodName
+dummy
+-className
+Quicksort
+-jarFileName
+/home/arpit/research/QuicksortApp/out/artifacts/QuicksortApp_jar/QuicksortApp.jar
+-testJarFileName
+/home/arpit/research/QuicksortApp/out/artifacts/QuicksortApp_jar/QuicksortApp.jar
+-buildCommand
+"ant -buildfile  /home/arpit/research/QuicksortApp/quicksortapp.xml"
+-packageName
+"com.osustar"
+
+
+*********** Quikssort Example app from immortals machine***********************
+
+-level
+method
+-rootFolder
+/home/arpit/research/QuicksortApp
+-relativePath
+/src/com/osustar/Quicksort.java
+-methodName
+dummy
+-className
+Quicksort
+-jarFileName
+/home/ubuntu/research/QuicksortApp/out/artifacts/QuicksortApp_jar/QuicksortApp.jar
+-testJarFileName
+/home/ubuntu/research/QuicksortApp/out/artifacts/QuicksortApp_jar/QuicksortApp.jar
+-buildCommand
+"ant -buildfile  /home/ubuntu/research/QuicksortApp/quicksortapp.xml"
+-packageName
+"com.osustar"
+
+
+
+************ Apache commons validator on work machine *********************
+
+
+-level
+method
+-rootFolder
+/scratch/research/commons-validator
+-relativePath
+"/src/main/java/org/apache/commons/validator/UrlValidator.java"
+-methodName
+isValid
+-className
+UrlValidator
+-jarFileName
+"/scratch/research/commons-validator/dist/commons-validator-1.5.0-SNAPSHOT.jar"
+-testJarFileName
+"/scratch/research/commons-validator/dist/commons-validator-1.5.0-SNAPSHOT.jar"
+-buildCommand
+"ant -buildfile  /scratch/research/commons-validator/build.xml"
+-packageName
+"org.apache.commons.validator.routines"
+
+************ Apache commons validator on home machine *********************
+
+
+-level
+method
+-rootFolder
+/home/arpit/research/commons-validator
+-relativePath
+"/src/main/java/org/apache/commons/validator/routines/UrlValidator.java"
+-methodName
+isValid
+-className
+UrlValidator
+-jarFileName
+"/home/arpit/research/commons-validator/classes/artifacts/commons_validator/commons-validator.jar"
+-testJarFileName
+"/home/arpit/research/commons-validator/classes/artifacts/commons_validator/commons-validator.jar"
+-buildCommand
+"ant -buildfile  /home/arpit/research/commons-validator/commons-validator.xml"
+-packageName
+"org.apache.commons.validator.routines"
+
+************ Apache commons validator on immortals machine *********************
+
+
+-level
+method
+-rootFolder
+/home/ubuntu/research/commons-validator
+-relativePath
+"/src/main/java/org/apache/commons/validator/routines/UrlValidator.java"
+-methodName
+isValid
+-className
+UrlValidator
+-jarFileName
+"/home/ubuntu/research/commons-validator/classes/artifacts/commons_validator/commons-validator.jar"
+-testJarFileName
+"/home/ubuntu/research/commons-validator/classes/artifacts/commons_validator/commons-validator.jar"
+-buildCommand
+"ant -buildfile  /home/ubuntu/research/commons-validator/commons-validator.xml"
+-packageName
+"org.apache.commons.validator.routines"
+-timeoutForInfiniteLoop
+30
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+
+
+
+
+
+************ Immortals **********************************
+
+java -cp "hdd.jar:commons-cli-1.3.1.jar:javaparser-1.0.8.jar:commons-collections4-4.1.jar:junit-4.12.jar:log4j-1.2.17.jar:hamcrest-core-1.3.jar:hamcrest-junit-2.0.0.0.jar:java-hamcrest-2.0.0.0.jar" Driver.CommonsValidatorDriver -level "method" -rootFolder "/home/ubuntu/research/commons-validator" -relativePath "/src/main/java/org/apache/commons/validator/routines/UrlValidator.java" -methodName "isValid" -className "UrlValidator" -jarFileName "/home/ubuntu/research/commons-validator/classes/artifacts/commons_validator/commons-validator.jar" -testJarFileName "/home/ubuntu/research/commons-validator/classes/artifacts/commons_validator/commons-validator.jar" -buildCommand "ant -buildfile  /home/ubuntu/research/commons-validator/commons-validator.xml" -packageName "org.apache.commons.validator.routines" -timeoutForInfiniteLoop 30 -testClassesFilePath "/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+
+
+-level
+"method"
+-rootFolder
+"/root/immortals_repo/applications/client/ATAKLite"
+-relativePath
+"/src/com/bbn/ataklite/MainActivity.java"
+-methodName
+"isValid"
+-className
+"MainActivity"
+-jarFileName
+"provide client jar path with full name(where gradle build will put it)"
+-testJarFileName
+"Not needed for immortals"
+-buildCommand
+"/root/immortals_repo/gradlew"
+-packageName
+"com.bbn.ataklite"
+-timeoutForInfiniteLoop
+30
+-testClassesFilePath
+"not needed for immortals.Needed in case you want to run just some of the tests from your test suite in JUnit"
+-immortalsTester
+"root/immortals_repo//harness/scenarioconductor/ScenarioRunner.py"
+-jarOrApk
+"APK"
+
+
+*********************** CLI *******************************************
+-level
+class
+-rootFolder
+/home/ubuntu/research/commons-cli
+-relativePath
+"/src/main/java/org/apache/commons/cli/DefaultParser.java"
+-methodName
+"does not matter, class level reduction"
+-className
+DefaultParser
+-jarFileName
+"/home/ubuntu/research/commons-cli/classes/artifacts/cli/cli.jar"
+-testJarFileName
+"/home/ubuntu/research/commons-cli/classes/artifacts/cli/cli.jar"
+-buildCommand
+"ant -buildfile  /home/ubuntu/research/commons-cli/commons-cli.xml"
+-packageName
+"org.apache.commons.cli"
+-timeoutForInfiniteLoop
+30
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CLIDriverTest.data"
