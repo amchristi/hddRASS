@@ -40,6 +40,19 @@ public class HierarchicalClassReducer {
         this.className = className;
         this.isAPK = isAPK;
     }
+    public HierarchicalClassReducer(String rootFolder,String relativeFilePath, String jarFilePath, String packageName,String testJarFileName,  List<String> testClasses, String buildCommand, String className, boolean isAPK,BuildAndRunAbstract buildAndRun){
+        this.rootFolder = rootFolder;
+        this.relativeFilePath = relativeFilePath;
+        this.testClasses = testClasses;
+        this.fullJarFilePath = jarFilePath;
+        this.buildCommand = buildCommand;
+        this.testJarFilePath = testJarFileName;
+        this.testClasses = testClasses;
+        this.packageName = packageName;
+        this.className = className;
+        this.isAPK = isAPK;
+        this.buildAndRun = buildAndRun;
+    }
 
     public HierarchicalClassReducer(String rootFolder,String relativeFilePath, String jarFilePath, String packageName,ITester tester, String buildCommand, String className, boolean isAPK){
         this.rootFolder = rootFolder;

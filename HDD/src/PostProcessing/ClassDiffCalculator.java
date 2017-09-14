@@ -70,14 +70,10 @@ public class ClassDiffCalculator {
 
 
     public static void main(String[] args){
-        int percentage = 20 ;
-        String className = "Project";
+        int percentage = 10 ;
+        String className = "Checksum";
 
 
-        ClassDiffCalculator clsdiff = new ClassDiffCalculator("/home/ubuntu/results/UndoManagerManReduced.java","/home/ubuntu/results/UndoManagerAutomaticallyReduced.java");
-        StatInfo statInfo2 = clsdiff.FindReductionInfo();
-        System.out.println(Integer.toString(statInfo2.numberOfNodesReduced));
-        System.out.println(Integer.toString(statInfo2.highestlevelFromLeafNode));
 
 
         FileWriterUtil.writeLine("/home/ubuntu/temp.txt","\n");
@@ -89,15 +85,15 @@ public class ClassDiffCalculator {
             StatInfo statInfo =  diff.FindReductionInfo();
             Debugger.log(statInfo.highestlevelFromLeafNode);
             if(i == 1){
-                FileWriterUtil.appendLine("/home/ubuntu/temp.txt",Integer.toString(statInfo.numberOfNodesReduced));
-                FileWriterUtil.appendLine("/home/ubuntu/temp.txt",Integer.toString(statInfo.highestlevelFromLeafNode));
+                FileWriterUtil.appendLine("/home/ubuntu/tempStatements.txt",Integer.toString(statInfo.numberOfNodesReduced));
+                FileWriterUtil.appendLine("/home/ubuntu/tempLevel.txt",Integer.toString(statInfo.highestlevelFromLeafNode));
 
             }
 
 
             else{
-                FileWriterUtil.appendLine("/home/ubuntu/temp.txt",Integer.toString(statInfo.numberOfNodesReduced));
-                FileWriterUtil.appendLine("/home/ubuntu/temp.txt",Integer.toString(statInfo.highestlevelFromLeafNode));
+                FileWriterUtil.appendLine("/home/ubuntu/tempStatements.txt",Integer.toString(statInfo.numberOfNodesReduced));
+                FileWriterUtil.appendLine("/home/ubuntu/tempLevel.txt",Integer.toString(statInfo.highestlevelFromLeafNode));
             }
 
 

@@ -2,11 +2,14 @@ package ASTManipulation;
 
 import Helper.Debugger;
 import Helper.FileWriterUtil;
+import Helper.Stuffs;
 import japa.parser.ast.Comment;
 import japa.parser.ast.CompilationUnit;
 import japa.parser.ast.body.*;
 import japa.parser.ast.expr.*;
 import japa.parser.ast.type.Type;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -203,6 +206,57 @@ public class MethodRemover {
 
     }
 
+    public void removeMethodsByExternalLabeling(JSONArray requiredTests, JSONArray optionalTests){
+        _cu.getTypes().stream().forEach(x -> {
+            List<BodyDeclaration> list = new ArrayList<BodyDeclaration>();
+            List<TypeDeclaration> listType = new ArrayList<TypeDeclaration>();
+            List<FieldDeclaration> listFields = new ArrayList<FieldDeclaration>();
+
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("TypeDeclaration"))
+                    .forEach(y -> list.add((TypeDeclaration) y));
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("FieldDeclaration"))
+                    .forEach(y -> list.add((FieldDeclaration) y));
+
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("InitializerDeclaration"))
+                    .forEach(y -> list.add((InitializerDeclaration) y));
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("ConstructorDeclaration"))
+                    .forEach(y -> list.add((ConstructorDeclaration) y));
+
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("ClassOrInterfaceDeclaration"))
+                    .forEach(y -> list.add((ClassOrInterfaceDeclaration) y));
+
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("MethodDeclaration"))
+                    .forEach(y -> {
+
+                        MethodDeclaration m = (MethodDeclaration) y;
+                        if(isOptionalTestMethod(m,optionalTests)){
+                            FileWriterUtil.appendLine("temp.txt",m.getName());
+                            deletedMethodList.add(m.getName());
+                        }
+                        else{
+                            list.add(m);
+                        }
+
+                    });
+
+
+
+            _newcu.getTypes().get(0).setMembers(list);
+
+
+        });
+
+        Debugger.log(_newcu);
+
+
+    }
+
     private boolean isTestMethod(MethodDeclaration m){
         List<AnnotationExpr> annotations = m.getAnnotations();
         if(annotations == null || annotations.size() == 0)
@@ -213,6 +267,20 @@ public class MethodRemover {
 
         }
         return false;
+    }
+
+    private boolean isOptionalTestMethod(MethodDeclaration m, JSONArray optioalTests){
+        boolean isOptioanlTest = false;
+        if(!isTestMethod(m)){
+            return false;
+        }
+        for (Object o :  optioalTests) {
+            String methondName = Stuffs.DeriveMethodNameFromFullName(o.toString());
+            if(m.getName().equals(methondName))
+                return true;
+
+        }
+        return isOptioanlTest;
     }
 
     public int GetTestMethodCount(){

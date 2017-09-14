@@ -3,6 +3,7 @@ package PreProcessig;
 import ASTManipulation.MethodRemover;
 import Helper.*;
 import japa.parser.ast.CompilationUnit;
+import org.json.simple.JSONArray;
 
 import java.rmi.StubNotFoundException;
 import java.util.ArrayList;
@@ -48,6 +49,19 @@ public class PrepareClassBasedOnLabeling {
         donoRemoveList.add(Stuffs.DeriveClassNameFromFullPath(inputFilePath));
         MethodRemover methodRemover = new MethodRemover(cu2,donoRemoveList);
         methodRemover.removeMethodsByPercentage(percentage);
+        Debugger.log(methodRemover._newcu);
+        FileWriterUtil.write(inputFilePath,methodRemover._newcu.toString());
+        deletedMethodList.addAll(methodRemover.deletedMethodList);
+    }
+
+    public void processAsPerLabeling(JSONArray requiredTests, JSONArray optionalTests){
+        CompilationUnit cu = new CompilationUnit();
+
+        CompilationUnit cu2 = CompilationUnitHelper.CreateCompilationUnit(cu,inputFilePath);
+        List<String> donoRemoveList = new ArrayList<String>();
+        donoRemoveList.add(Stuffs.DeriveClassNameFromFullPath(inputFilePath));
+        MethodRemover methodRemover = new MethodRemover(cu2,donoRemoveList);
+        methodRemover.removeMethodsByExternalLabeling(requiredTests,optionalTests);
         Debugger.log(methodRemover._newcu);
         FileWriterUtil.write(inputFilePath,methodRemover._newcu.toString());
         deletedMethodList.addAll(methodRemover.deletedMethodList);

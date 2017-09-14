@@ -144,10 +144,17 @@ public class Reducer {
                 //build(this.buildcommand);
                 //boolean result = tester.runAll();
                 BuildAndRunAbstract buildAndRun;
-                if( testSuitename.isEmpty())
-                    buildAndRun= new BuildAndRun(this.buildcommand, tester);
-                else
-                    buildAndRun = new BuildAndRunAnts(this.buildcommand,testSuitename, buildAndRunCommand.runCommand, buildAndRunCommand.buildSuccessString, buildAndRunCommand.runSuccessString);
+                if(!Globals.IS_IMMORTALS_RUN){
+                    if( testSuitename.isEmpty())
+                        buildAndRun= new BuildAndRun(this.buildcommand, tester);
+                    else
+                        buildAndRun = new BuildAndRunAnts(this.buildcommand,testSuitename, buildAndRunCommand.runCommand, buildAndRunCommand.buildSuccessString, buildAndRunCommand.runSuccessString);
+                }
+                else{
+                    buildAndRun = this.buildAndRunCommand;
+
+                }
+
 
 
                 boolean result = buildAndRun.run();
@@ -232,10 +239,16 @@ public class Reducer {
 
 
         BuildAndRunAbstract buildAndRun;
-        if( testSuitename.isEmpty())
-            buildAndRun= new BuildAndRun(this.buildcommand, tester);
-        else
-            buildAndRun = new BuildAndRunAnts(this.buildcommand,testSuitename,this.buildAndRunCommand.runCommand,this.buildAndRunCommand.buildSuccessString,this.buildAndRunCommand.runSuccessString);
+        if(!Globals.IS_IMMORTALS_RUN){
+            if( testSuitename.isEmpty())
+                buildAndRun= new BuildAndRun(this.buildcommand, tester);
+            else
+                buildAndRun = new BuildAndRunAnts(this.buildcommand,testSuitename,this.buildAndRunCommand.runCommand,this.buildAndRunCommand.buildSuccessString,this.buildAndRunCommand.runSuccessString);
+        }
+        else{
+            buildAndRun = this.buildAndRunCommand;
+        }
+
 
 
         try {
@@ -277,10 +290,16 @@ public class Reducer {
         FileWriterUtil.write(this.javaMethod.rootFolderName + this.javaMethod.reltiveTestFilePath, clm._newcu.toString());
 
         BuildAndRunAbstract buildAndRun;
-        if( testSuitename.isEmpty())
-            buildAndRun= new BuildAndRun(this.buildcommand, tester);
-        else
-            buildAndRun = new BuildAndRunAnts(this.buildcommand,testSuitename,this.buildAndRunCommand.runCommand,this.buildAndRunCommand.buildSuccessString,this.buildAndRunCommand.runSuccessString);
+        if(!Globals.IS_IMMORTALS_RUN){
+            if( testSuitename.isEmpty())
+                buildAndRun= new BuildAndRun(this.buildcommand, tester);
+            else
+                buildAndRun = new BuildAndRunAnts(this.buildcommand,testSuitename,this.buildAndRunCommand.runCommand,this.buildAndRunCommand.buildSuccessString,this.buildAndRunCommand.runSuccessString);
+
+        }
+        else{
+                buildAndRun = this.buildAndRunCommand;
+        }
 
         try {
             return buildAndRun.run();

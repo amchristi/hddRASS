@@ -35,7 +35,7 @@ public class ThreadedAntRunner extends Thread{
                 //result = (FileReaderUtil.Contains(fileName,this.buildAndRunAnts.runSuccessString));
                 if(result){
                     //Debugger.log("**************************************Test results are true. ***************************************************");
-                    System.out.println("**************************************Test results are true. ***************************************************");
+                    System.out.println("**************************************Test results are true. Reduction performed.  ***************************************************");
                 }
             } catch (IOException e) {
                 e.printStackTrace();

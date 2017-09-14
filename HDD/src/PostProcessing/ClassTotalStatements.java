@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class ClassTotalStatements {
     String originalFile;
+    int highestDepthLevel = 0;
 
     public ClassTotalStatements(String originalFile){
         this.originalFile = originalFile;
@@ -28,6 +29,7 @@ public class ClassTotalStatements {
             ClassMethodLineManipulator clm = new ClassMethodLineManipulator(CompilationUnitHelper.CreateCompilationUnit(originalFile),m1.getName());
 
             int n = clm.GetHeigestDepthLevel();
+            this.highestDepthLevel = Math.max(n,this.highestDepthLevel);
             for(int i =n;i>0;i--){
 
 
@@ -46,8 +48,10 @@ public class ClassTotalStatements {
 
 
     public static void main(String[] args){
-        ClassTotalStatements cts = new ClassTotalStatements("/home/ubuntu/results/UndoManagerAutomaticallyReduced.java");
+        ClassTotalStatements cts = new ClassTotalStatements("/home/ubuntu/results/reduced/OptionGroup/OptionGroup.java");
         int total = cts.FindTotalSTatemetns();
-        Debugger.log(total);
+
+        System.out.println(total);
+        System.out.println(cts.highestDepthLevel);
     }
 }

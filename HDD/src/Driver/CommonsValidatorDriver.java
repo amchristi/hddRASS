@@ -53,8 +53,9 @@ public class CommonsValidatorDriver {
         String testJarFile = commandLineParser.getTestJarFileName();
         String jarFile = commandLineParser.getJarFileName();
         String buildCommand = commandLineParser.getBuildcommand();
-        buildCommand = "mvn -f /home/ubuntu/research/commons-text/pom.xml compile";
-        String runCommand = "mvn -f /home/ubuntu/research/commons-text/pom.xml test";
+        buildCommand = Globals.antBuildCommand;
+
+        String runCommand = Globals.antTestCommand;
         String buildSuccessString = "BUILD SUCCESS";
         String runSuccessString = "";
 
@@ -70,7 +71,7 @@ public class CommonsValidatorDriver {
         FileOperationUtil.createDirectory(resultFolder);
         FileOperationUtil.copyFile(pristineFolder + relativeFilePath,resultFolder + className + ".java");
         FileOperationUtil.copyFile(pristineFolder + testclassRelativePath,rootFolder + testclassRelativePath);
-        int percentage = 10;
+        int percentage = 20;
         BuildAndRunAbstract buildAndRun;
         boolean buildOK;
         if( testSuiteName.isEmpty())
@@ -85,7 +86,7 @@ public class CommonsValidatorDriver {
             exit(-100);
         }
 
-        for(int i = 2;i<=2;i++){
+        for(int i = 1;i<=1;i++){
 
             buildOK = buildAndRun.build();
             if(!buildOK){
