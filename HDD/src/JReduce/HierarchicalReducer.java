@@ -68,6 +68,7 @@ public class HierarchicalReducer {
 
     public void Reduce() throws ParseException {
         for(int i = highestDepthLevel; i> 0;i--){
+
             javaMethod = new JavaMethod(rootFolder,relativeFilePath,methodName,className,fullJarFilePath);
             if(testClasses.isEmpty() || this.testJarFilePath.isEmpty())
                 tester = new Tester(fullJarFilePath,testClasses);
@@ -75,11 +76,17 @@ public class HierarchicalReducer {
             TreeManipulator tree = new TreeManipulator(javaMethod.cu,javaMethod.testMethodName);
             if(buildAndRun == null){
                 Reducer reducer = new Reducer(javaMethod,tester,i,this.buildCommand,testsuiteName);
-                reducer.ReduceSequentical();
+                if(!Globals.GREEDY)
+                    reducer.ReduceSequentical();
+                else
+                    reducer.ReduceSequentialGreedy();
             }
             else{
                 Reducer reducer = new Reducer(javaMethod,tester,i,this.buildCommand,testsuiteName,buildAndRun);
-                reducer.ReduceSequentical();
+                if(!Globals.GREEDY)
+                    reducer.ReduceSequentical();
+                else
+                    reducer.ReduceSequentialGreedy();
 
             }
 
@@ -88,6 +95,7 @@ public class HierarchicalReducer {
         }
         System.out.println("done.....................................................................................");
     }
+
 
 
 

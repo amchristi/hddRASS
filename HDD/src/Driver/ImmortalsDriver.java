@@ -32,6 +32,8 @@ public class ImmortalsDriver {
         String jarFile = commandLineParser.getJarFileName();
         String buildCommand = commandLineParser.getBuildcommand();
         String packageName = commandLineParser.getPackageName();
+        String testResultPath = commandLineParser.getResultFolder();
+        Globals.antTestResultPath = testResultPath;
         boolean isAPK = commandLineParser.getJarOrApk().toString().toUpperCase().trim().equals("APK");
         System.out.println("*************************");
 

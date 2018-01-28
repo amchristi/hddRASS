@@ -23,12 +23,27 @@ public class CommandLineParser {
         options.addOption("packageName",true,"pacakge name");
         options.addOption("timeoutForInfiniteLoop", true, "time out to detect infinite loop in seconds");
         options.addOption("testClassesFilePath", true, "test class file path, data file where set of test cases are being kept");
-        options.addOption("immortalsTester", true, "Immortals tester, special case to run immortals python tester.");
+        options.addOption("immortalsTester", false, "Immortals tester, special case to run immortals python tester.");
         options.addOption("jarOrApk", true, "Speficy if final outcome is jar or apk.");
         options.addOption("pristineFolder",true,"Specify pristine folder");
         options.addOption("testClassRelativePath", true,"test class relative path");
         options.addOption("resultsFolder", true,"result folder path");
         options.addOption("testSuiteName", true,"test suite name");
+        options.addOption("runCommand", true,"test suite name");
+        options.addOption("buildOutputPath", true, "build output path");
+        options.addOption("runOutputPath", true, "run output path");
+        options.addOption("buildSuccessString", true, "build Success String");
+        options.addOption("buildSuccessString2", true, "build Success String2");
+        options.addOption("runSuccessString", false, "run Success String");
+        options.addOption("testJsonFile",true,"test json file");
+        options.addOption("compileOutputPath",true,"compile output path");
+        options.addOption("testResultOutputPath", true,"test result output path");
+        options.addOption("isDebug", true,"set to produce verbose output");
+        options.addOption("totalTests", true,"total number of tests");
+        options.addOption("percentRemoval", true,"percentage of tests need removal");
+
+
+
 
         parser = new org.apache.commons.cli.DefaultParser();
 
@@ -77,6 +92,19 @@ public class CommandLineParser {
     public String getResultFolder(){return commandLine.getOptionValue("resultsFolder");}
     public String getTestSuiteName(){return commandLine.getOptionValue("testSuiteName") == null ?
             Globals.EmptyString:commandLine.getOptionValue("testSuiteName");}
+    public String getBuildOutputPath(){return commandLine.getOptionValue("buildOutputPath");}
+    public String getRunOutputPath (){return commandLine.getOptionValue("runOutputPath");}
+    public String getBuildSuccessString() {return commandLine.getOptionValue("buildSuccessString");}
+    public String getRunSuccessString(){return commandLine.getOptionValue("runSuccessString");}
+    public String getTestJsonFile(){return commandLine.getOptionValue("testJsonFile");}
+    public String getCompileOutputPath(){return commandLine.getOptionValue("compileOutputPath");}
+    public String getTestResultOutputPath(){return commandLine.getOptionValue("testResultOutputPath");}
+    public String getRunCommand(){return commandLine.getOptionValue("runCommand");}
+    public String getBuildSuccessString2(){return commandLine.getOptionValue("buildSuccessString2");}
+    public boolean getIsDebug(){return Boolean.parseBoolean(commandLine.getOptionValue("isDebug"));}
+    public int getTotalTests(){return Integer.parseInt(commandLine.getOptionValue("totalTests"));}
+    public int getPercentRemoval(){return Integer.parseInt(commandLine.getOptionValue("percentRemoval"));}
+
 
 
     public static void main(String[] args) throws ParseException{

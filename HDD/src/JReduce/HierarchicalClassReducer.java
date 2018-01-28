@@ -113,22 +113,29 @@ public class HierarchicalClassReducer {
 
         ClassIterator iterator = new ClassIterator(rootFolder + relativeFilePath);
         iterator.GetAllMethodsName().forEach(p -> {
-            JavaMethod javaMethod = new JavaMethod(rootFolder,relativeFilePath,p,className,this.fullJarFilePath);
-            HierarchicalReducer hReducer = null;
-            if(testClasses.isEmpty() || testJarFilePath.isEmpty()){
-                hReducer = new HierarchicalReducer
-                        (javaMethod,rootFolder,relativeFilePath,p,tester,buildCommand,className);
-            }else{
-                hReducer = new HierarchicalReducer
-                        (javaMethod,rootFolder,relativeFilePath,p,testJarFilePath,testClasses,buildCommand,className);
+            if(Globals.notToProcess.contains(p)){
+                System.out.println(" *********** " + p + "************* not processed. " );
+
             }
-            hReducer.testsuiteName = this.testSuiteName;
-            hReducer.buildAndRun = this.buildAndRun;
-            try {
-                hReducer.Reduce();
-            } catch (ParseException e) {
-                e.printStackTrace();
+            else{
+                JavaMethod javaMethod = new JavaMethod(rootFolder,relativeFilePath,p,className,this.fullJarFilePath);
+                HierarchicalReducer hReducer = null;
+                if(testClasses.isEmpty() || testJarFilePath.isEmpty()){
+                    hReducer = new HierarchicalReducer
+                            (javaMethod,rootFolder,relativeFilePath,p,tester,buildCommand,className);
+                }else{
+                    hReducer = new HierarchicalReducer
+                            (javaMethod,rootFolder,relativeFilePath,p,testJarFilePath,testClasses,buildCommand,className);
+                }
+                hReducer.testsuiteName = this.testSuiteName;
+                hReducer.buildAndRun = this.buildAndRun;
+                try {
+                    hReducer.Reduce();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
+
         });
 
     }

@@ -1,0 +1,9 @@
+{
+  "requiredValidators": [
+    "com.bbn.marti.Tests.testSaTransmission",
+    "com.bbn.marti.Tests.testImageTransmission"
+  ],
+  "optionalValidators": [
+    "com.bbn.marti.Tests.testImageSave"
+  ]
+}

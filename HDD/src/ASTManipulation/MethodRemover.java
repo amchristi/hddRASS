@@ -7,6 +7,7 @@ import japa.parser.ast.Comment;
 import japa.parser.ast.CompilationUnit;
 import japa.parser.ast.body.*;
 import japa.parser.ast.expr.*;
+import japa.parser.ast.stmt.BlockStmt;
 import japa.parser.ast.type.Type;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -27,6 +28,12 @@ public class MethodRemover {
     public List<String> doNotRemoveList;
     public List<String> deletedMethodList;
 
+
+    public MethodRemover(CompilationUnit _cu) {
+        this._cu = _cu;
+        _newcu = new CompilationUnit(_cu.getPackage(),_cu.getImports(),_cu.getTypes(),_cu.getComments());
+
+    }
 
     public MethodRemover(CompilationUnit cu, List<String> doNotRemoveList){
         _cu = cu;
@@ -204,6 +211,125 @@ public class MethodRemover {
         Debugger.log(_newcu);
 
 
+    }
+
+
+    public CompilationUnit complement(List<BodyDeclaration> compilationUnit, String comFile) {
+        List<BodyDeclaration> removedList = new ArrayList<BodyDeclaration>();
+        List<BodyDeclaration> list = new ArrayList<BodyDeclaration>();
+
+        _cu.getTypes().stream().forEach(x -> {
+            List<TypeDeclaration> listType = new ArrayList<TypeDeclaration>();
+            List<FieldDeclaration> listFields = new ArrayList<FieldDeclaration>();
+
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("TypeDeclaration"))
+                    .forEach(y -> list.add((TypeDeclaration) y));
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("FieldDeclaration"))
+                    .forEach(y -> list.add((FieldDeclaration) y));
+
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("InitializerDeclaration"))
+                    .forEach(y -> list.add((InitializerDeclaration) y));
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("ConstructorDeclaration"))
+                    .forEach(y -> list.add((ConstructorDeclaration) y));
+
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("ClassOrInterfaceDeclaration"))
+                    .forEach(y -> list.add((ClassOrInterfaceDeclaration) y));
+
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("MethodDeclaration"))
+                    .forEach(y -> {
+
+                        MethodDeclaration m = (MethodDeclaration) y;
+                        if (isTestMethod(m)) {
+                            boolean exist = false;
+                            for (int i = 0; i < compilationUnit.size(); i++) {
+                                BodyDeclaration bodyDeclaration = compilationUnit.get(i);
+                                MethodDeclaration original = (MethodDeclaration) bodyDeclaration;
+                                if (original.toString().equals(m.toString())) {
+                                    exist = true;
+                                    BlockStmt body = original.getBody();
+                                }
+
+                            }
+                            if (!exist) {
+                                list.add(m);
+                                removedList.add(m);
+
+                            }
+                        } else {
+                            list.add(m);
+
+                        }
+
+
+
+                    });
+
+
+
+            _newcu.getTypes().get(0).setMembers(list);
+
+
+        });
+
+
+        System.out.println(_newcu.toString());
+        return _newcu;
+//        Debugger.log(removedList);
+
+    }
+
+    public     List<BodyDeclaration>  getAvaibleTestMethods() {
+        List<BodyDeclaration> list = new ArrayList<BodyDeclaration>();
+
+        _cu.getTypes().stream().forEach(x -> {
+            List<TypeDeclaration> listType = new ArrayList<TypeDeclaration>();
+            List<FieldDeclaration> listFields = new ArrayList<FieldDeclaration>();
+
+
+
+            x.getMembers().stream()
+                    .filter(a -> ((BodyDeclaration)a).getClass().getSimpleName().equals("MethodDeclaration"))
+                    .forEach(y -> {
+
+                        MethodDeclaration m = (MethodDeclaration) y;
+                        if (isTestMethod(m)) {
+                            String s = m.toString();
+                            String s1 = m.getBody().toString();
+                            list.add(m);
+
+                        }
+
+//                        if((!doNotRemoveList.contains(m.getName())) && (isTestMethod(m))){
+//
+//                            if(Math.random() >= (double)percentageOfMethodToBeRemoved/100) {
+//                                list.add(m);
+//                            }
+//                            else{
+//                                FileWriterUtil.appendLine("temp.txt",m.getName());
+//                                deletedMethodList.add(m.getName());
+//                            }
+//                        }
+//                        else{
+//                            list.add(m);
+//                        }
+
+                    });
+
+
+
+            _newcu.getTypes().get(0).setMembers(list);
+
+
+        });
+
+        Debugger.log(_newcu);
+        return list;
     }
 
     public void removeMethodsByExternalLabeling(JSONArray requiredTests, JSONArray optionalTests){

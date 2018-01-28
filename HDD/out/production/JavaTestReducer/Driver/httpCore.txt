@@ -1,0 +1,154 @@
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/httpcore/httpcore5/src/main/java/org/apache/hc/core5/net/URIBuilder.java"
+-methodName
+isValid
+-className
+URIBuilder
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/httpcore/httpcore5/pom.xml"
+-runCommand
+"mvn -Dtest=TestURIBuilder -f /home/ubuntu/research/httpcore/httpcore5/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.hc.core5.net"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/httpcore/httpcore5/src/test/java/org/apache/hc/core5/net/TestURIBuilder.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.hc.core5.net.TestURIBuilder"
+-totalTests 26
+-percentRemoval 10
+
+
+
+
+
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/httpcore/httpcore5/src/main/java/org/apache/hc/core5/http/impl/io/HttpService.java"
+-methodName
+isValid
+-className
+HttpService
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/httpcore/httpcore5/pom.xml"
+-runCommand
+"mvn -Dtest=TestHttpService -f /home/ubuntu/research/httpcore/httpcore5/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.hc.core5.http.impl.io"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/httpcore/httpcore5/src/test/java/org/apache/hc/core5/http/impl/io/TestHttpService.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.hc.core5.http.impl.io.TestHttpService"
+-totalTests 12
+-percentRemoval 10
+
+
+
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/httpcore/httpcore5/src/main/java/org/apache/hc/core5/http/message/HeaderGroup.java"
+-methodName
+isValid
+-className
+HeaderGroup
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/httpcore/httpcore5/pom.xml"
+-runCommand
+"mvn -Dtest=TestHeaderGroup -f /home/ubuntu/research/httpcore/httpcore5/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.hc.core5.http.message"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/httpcore/httpcore5/src/test/java/org/apache/hc/core5/http/message/TestHeaderGroup.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.hc.core5.http.message.TestHeaderGroup"
+-totalTests 11
+-percentRemoval 10
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/httpcore/httpcore5/src/main/java/org/apache/hc/core5/http/io/EofSensorInputStream.java"
+-methodName
+isValid
+-className
+EofSensorInputStream
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/httpcore/httpcore5/pom.xml"
+-runCommand
+"mvn -Dtest=TestEofSensorInputStream -f /home/ubuntu/research/httpcore/httpcore5/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.hc.core5.http.io"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/httpcore/httpcore5/src/test/java/org/apache/hc/core5/http/io/TestEofSensorInputStream.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.hc.core5.http.io.TestEofSensorInputStream"
+-totalTests 10
+-percentRemoval 10
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+{
+  "requiredValidators": [
+    "com.bbn.marti.Tests.testSaTransmission",
+    "com.bbn.marti.Tests.testImageTransmission"
+  ],
+  "buildTool": "gradle",
+  "buildToolPath": "/root/arpit-marti/gradlew",
+  "buildToolBuildParameter": "clean build",
+  "buildToolValidationParameters": "clean validate",
+  "applicationPath": "/root/arpit-marti/applications/server/Marti/",
+  "sourceSubpath": "src",
+  "buildFilePath": "build.gradle",
+  "testResultPath": "/root/arpit-marti/applications/server/Marti/build/test-results/validate/",
+  "testFileRegex": ""
+}

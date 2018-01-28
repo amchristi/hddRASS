@@ -61,4 +61,6 @@ public class Delta<T> {
         return  new Delta(strlist);
     }
 
+
+
 }

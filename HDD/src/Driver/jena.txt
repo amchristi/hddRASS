@@ -1,0 +1,100 @@
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/jena/jena-core/src/main/java/org/apache/jena/ontology/impl/OntClassImpl.java"
+-methodName
+isValid
+-className
+OntClassImpl
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn -f /home/ubuntu/research/jena/jena-core/pom.xml -Drat.skip=true compile"
+-runCommand
+"mvn -f /home/ubuntu/research/jena/jena-core/pom.xml test -Drat.skip=true -Dtest=TestOntClass"
+-packageName "org.apache.jena.ontology.impl"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/jena/jena-core/src/test/java/org/apache/jena/ontology/impl/TestOntClass.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.jena.ontology.impl.TestOntClass"
+-totalTests 27
+-percentRemoval 10
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/jena/jena-core/src/main/java/com/hp/hpl/jena/ontology/OntTools.java"
+-methodName
+isValid
+-className
+OntTools
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn -f /home/ubuntu/research/jena/jena-core/pom.xml -Drat.skip=true compile"
+-runCommand
+"mvn -f /home/ubuntu/research/jena/jena-core/pom.xml test -Drat.skip=true -Dtest=TestOntTools"
+-packageName "com.hp.hpl.jena.ontology"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/jena/jena-core/src/test/java/com/hp/hpl/jena/ontology/impl/TestOntTools.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "com.hp.hpl.jena.ontology.impl.TestOntTools"
+-totalTests 29
+-percentRemoval 10
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/jena/jena-core/src/main/java/com/hp/hpl/jena/ontology/impl/OntModelImpl.java"
+-methodName
+isValid
+-className
+OntModelImpl
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn -f /home/ubuntu/research/jena/jena-core/pom.xml -Drat.skip=true compile"
+-runCommand
+"mvn -f /home/ubuntu/research/jena/jena-core/pom.xml test -Drat.skip=true -Dtest=TestOntModel"
+-packageName "com.hp.hpl.jena.ontology.impl"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/jena/jena-core/src/test/java/com/hp/hpl/jena/ontology/impl/TestOntModel.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "com.hp.hpl.jena.ontology.impl.TestOntModel"
+-totalTests 65
+-percentRemoval 10
+
+

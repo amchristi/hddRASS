@@ -1,0 +1,145 @@
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-text/src/main/java/org/apache/commons/text/similarity/LevenshteinDetailedDistance.java"
+-methodName
+isValid
+-className
+LevenshteinDetailedDistance
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/commons-text/pom.xml"
+-runCommand
+"mvn -Dtest=LevenshteinDetailedDistanceTest -f /home/ubuntu/research/commons-text/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.commons.text.similarity"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-text/src/test/java/org/apache/commons/text/similarity/LevenshteinDetailedDistanceTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.text.similarity.LevenshteinDetailedDistanceTest"
+-totalTests 12
+-percentRemoval 10
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-text/src/main/java/org/apache/commons/text/AlphabetConverter.java"
+-methodName
+isValid
+-className
+AlphabetConverter
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/commons-text/pom.xml"
+-runCommand
+"mvn -Dtest=AlphabetConverterTest -f /home/ubuntu/research/commons-text/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.commons.text"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-text/src/test/java/org/apache/commons/text/AlphabetConverterTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.text.AlphabetConverterTest"
+-totalTests 12
+-percentRemoval 10
+
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-text/src/main/java/org/apache/commons/text/ExtendedMessageFormat.java"
+-methodName
+isValid
+-className
+ExtendedMessageFormat
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/commons-text/pom.xml"
+-runCommand
+"mvn -Dtest=ExtendedMessageFormatTest -f /home/ubuntu/research/commons-text/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.commons.text"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-text/src/test/java/org/apache/commons/text/ExtendedMessageFormatTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.text.ExtendedMessageFormatTest"
+-totalTests 14
+-percentRemoval 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-text/src/main/java/org/apache/commons/text/StrBuilder.java"
+-methodName
+isValid
+-className
+StrBuilder
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/commons-text/pom.xml"
+-runCommand
+"mvn -Dtest=StrBuilderTest -f /home/ubuntu/research/commons-text/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.commons.text"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-text/src/test/java/org/apache/commons/text/StrBuilderTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.text.StrBuilderTest"
+-totalTests 91
+-percentRemoval 10

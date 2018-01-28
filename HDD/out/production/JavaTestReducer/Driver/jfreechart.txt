@@ -1,0 +1,153 @@
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/jfreechart/src/main/java/org/jfree/data/category/DefaultIntervalCategoryDataset.java"
+-methodName
+isValid
+-className
+DefaultIntervalCategoryDataset
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/jfreechart/pom.xml"
+-runCommand
+"mvn -Dtest=DefaultIntervalCategoryDatasetTest -f /home/ubuntu/research/jfreechart/pom.xml -DfailIfNoTests=false test"
+-packageName "org.jfree.data.category"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/jfreechart/src/test/java/org/jfree/data/category/DefaultIntervalCategoryDatasetTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.jfree.data.category.DefaultIntervalCategoryDatasetTest"
+-totalTests 20
+-percentRemoval 10
+
+###### Hour
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/jfreechart/src/main/java/org/jfree/data/time/Hour.java"
+-methodName
+isValid
+-className
+Hour
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/jfreechart/pom.xml"
+-runCommand
+"mvn -Dtest=HourTest -f /home/ubuntu/research/jfreechart/pom.xml -DfailIfNoTests=false test"
+-packageName "org.jfree.data.time"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/jfreechart/src/test/java/org/jfree/data/time/HourTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.jfree.data.time.HourTest"
+-totalTests 22
+-percentRemoval 10
+
+
+
+
+
+###### StatisticalBarRenderer
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/jfreechart/src/main/java/org/jfree/chart/renderer/category/StatisticalBarRenderer.java"
+-methodName
+isValid
+-className
+StatisticalBarRenderer
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/jfreechart/pom.xml"
+-runCommand
+"mvn -Dtest=StatisticalBarRendererTest -f /home/ubuntu/research/jfreechart/pom.xml -DfailIfNoTests=false test"
+-packageName "org.jfree.chart.renderer.category"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/jfreechart/src/test/java/org/jfree/chart/renderer/category/StatisticalBarRendererTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.jfree.chart.renderer.category.StatisticalBarRendererTest"
+-totalTests 11
+-percentRemoval 10
+
+
+
+
+
+
+
+
+
+
+
+
+###### GridArrangement
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/jfreechart/src/main/java/org/jfree/chart/block/GridArrangement.java"
+-methodName
+isValid
+-className
+GridArrangement
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/jfreechart/pom.xml"
+-runCommand
+"mvn -Dtest=GridArrangementTest -f /home/ubuntu/research/jfreechart/pom.xml -DfailIfNoTests=false test"
+-packageName "org.jfree.chart.block"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/jfreechart/src/test/java/org/jfree/chart/block/GridArrangementTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.jfree.chart.block.GridArrangementTest"
+-totalTests 18
+-percentRemoval 10
+
+
+
+

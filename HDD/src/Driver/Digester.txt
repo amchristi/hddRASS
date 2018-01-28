@@ -1,0 +1,219 @@
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-digester3-parent/core/src/main/java/org/apache/commons/digester3/Digester.java"
+-methodName
+isValid
+-className
+Digester
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/commons-digester3-parent/pom.xml"
+-runCommand
+"mvn -Dtest=DigesterTestCase -f /home/ubuntu/research/commons-digester3-parent/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.commons.digester3"
+-timeoutForInfiniteLoop 30
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-digester3-parent/core/src/test/java/org/apache/commons/digester3/DigesterTestCase.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.digester3.DigesterTestCase"
+
+CallMethodRule
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-digester3-parent/core/src/main/java/org/apache/commons/digester3/CallMethodRule.java"
+-methodName
+isValid
+-className
+CallMethodRule
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/commons-digester3-parent/pom.xml"
+-runCommand
+"mvn -Dtest=CallMethodRuleTestCase -f /home/ubuntu/research/commons-digester3-parent/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.commons.digester3"
+-timeoutForInfiniteLoop 30
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-digester3-parent/core/src/test/java/org/apache/commons/digester3/CallMethodRuleTestCase.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.digester3.CallMethodRuleTestCase"
+-totalTests 15
+-percentRemoval 10
+
+
+
+
+BinderClassLoaderTestCase
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-digester3-parent/core/src/main/java/org/apache/commons/digester3/binder/BinderClassLoader.java"
+-methodName
+isValid
+-className
+BinderClassLoader
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/commons-digester3-parent/pom.xml"
+-runCommand
+"mvn -Dtest=BinderClassLoaderTestCase -f /home/ubuntu/research/commons-digester3-parent/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.commons.digester3"
+-timeoutForInfiniteLoop 30
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-digester3-parent/core/src/test/java/org/apache/commons/digester3/binder/BinderClassLoaderTestCase.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.digester3.binder.BinderClassLoaderTestCase"
+-totalTests 11
+-percentRemoval 10
+
+
+ExtendedBaseRules
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-digester3-parent/core/src/main/java/org/apache/commons/digester3/ExtendedBaseRules.java"
+-methodName
+isValid
+-className
+ExtendedBaseRules
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/commons-digester3-parent/pom.xml"
+-runCommand
+"mvn -Dtest=ExtendedBaseRulesTestCase -f /home/ubuntu/research/commons-digester3-parent/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.commons.digester3"
+-timeoutForInfiniteLoop 30
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-digester3-parent/core/src/test/java/org/apache/commons/digester3/ExtendedBaseRulesTestCase.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.digester3.ExtendedBaseRulesTestCase"
+-totalTests 13
+-percentRemoval
+
+
+
+
+
+
+NodeCreateRule
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-digester3-parent/core/src/main/java/org/apache/commons/digester3/NodeCreateRule.java"
+-methodName
+isValid
+-className
+NodeCreateRule
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/commons-digester3-parent/pom.xml"
+-runCommand
+"mvn -Dtest=NodeCreateRuleTestCase -f /home/ubuntu/research/commons-digester3-parent/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.commons.digester3"
+-timeoutForInfiniteLoop 30
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-digester3-parent/core/src/test/java/org/apache/commons/digester3/NodeCreateRuleTestCase.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.digester3.NodeCreateRuleTestCase"
+-totalTests 10
+-percentRemoval
+ 10
+
+
+
+
+
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-text/src/main/java/org/apache/commons/text/ExtendedMessageFormat.java"
+-methodName
+isValid
+-className
+ExtendedMessageFormat
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"ant -buildfile "/home/ubuntu/research/cruisecontrol/cruisecontrol.xml""
+-packageName
+"org.apache.commons.text"
+-timeoutForInfiniteLoop
+30
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-text/src/test/java/org/apache/commons/text/ExtendedMessageFormatTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName
+"org.apache.commons.text.ExtendedMessageFormatTest"

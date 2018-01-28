@@ -8,6 +8,7 @@ import japa.parser.ast.body.TypeDeclaration;
 import japa.parser.ast.stmt.*;
 import sun.reflect.generics.tree.Tree;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.System.exit;
@@ -43,6 +44,335 @@ public class TreeManipulator {
         }
         return 0;
     }
+
+    public List<Statement> GetAllLeafNodes(){
+        List<Statement> leafStatements = new ArrayList<Statement>();
+        for (TypeDeclaration t : cu.getTypes()) {
+            for (BodyDeclaration b : t.getMembers()) {
+                if (b.getClass().getSimpleName().toString().equals("MethodDeclaration")) {
+                    MethodDeclaration m = (MethodDeclaration) b;
+                    if (m.getName().toString().equals(testMethod)) {
+                        leafStatements.addAll(GetAllLeafNodes(m.getBody()));
+
+                    }
+                }
+            }
+        }
+        return leafStatements;
+    }
+
+    public List<Statement> GetAllLeafPlusOneNodes(){
+        List<Statement> plusone = new ArrayList<Statement>();
+        for (TypeDeclaration t : cu.getTypes()) {
+            for (BodyDeclaration b : t.getMembers()) {
+                if (b.getClass().getSimpleName().toString().equals("MethodDeclaration")) {
+                    MethodDeclaration m = (MethodDeclaration) b;
+                    if (m.getName().toString().equals(testMethod)) {
+                        plusone.addAll(GetAllLeafPlusOneNodes(m.getBody()));
+
+                    }
+                }
+            }
+        }
+        return plusone;
+    }
+
+    public List<Statement> GetAllLeafNodes(BlockStmt blockStmt){
+        List<Statement> leafStatements = new ArrayList<Statement>();
+        if(blockStmt == null)
+            return leafStatements;
+        for (Statement s:blockStmt.getStmts()
+                             ) {
+            if(StatementTypeQuery.isLeafLevelStatement(s))
+                leafStatements.add(s);
+            else if(StatementTypeQuery.isSForStmt(s))
+                leafStatements.addAll(GetAllLeafNodes((ForStmt)s));
+            else if(StatementTypeQuery.isForEachStmt(s))
+                leafStatements.addAll(GetAllLeafNodes((ForeachStmt)s));
+            else if(StatementTypeQuery.isWhileStmt(s))
+                leafStatements.addAll(GetAllLeafNodes((WhileStmt)s));
+            else if(StatementTypeQuery.isIfElseStmt(s))
+                leafStatements.addAll(GetAllLeafNodes((IfStmt)s));
+            else if(StatementTypeQuery.isTryStmt(s))
+                leafStatements.addAll(GetAllLeafNodes((TryStmt)s));
+            //TODO: add other statement types;
+        }
+
+        return leafStatements;
+    }
+
+    public List<Statement> GetAllLeafPlusOneNodes(BlockStmt blockStmt){
+        List<Statement> leafStatements = new ArrayList<Statement>();
+        if(blockStmt == null)
+            return leafStatements;
+        for (Statement s:blockStmt.getStmts()
+                ) {
+
+            if (StatementTypeQuery.isSForStmt(s))
+                leafStatements.addAll(GetAllLeafPlusOneNodes((ForStmt) s));
+            else if (StatementTypeQuery.isForEachStmt(s))
+                leafStatements.addAll(GetAllLeafPlusOneNodes((ForeachStmt) s));
+            else if (StatementTypeQuery.isWhileStmt(s))
+                leafStatements.addAll(GetAllLeafPlusOneNodes((WhileStmt) s));
+            else if (StatementTypeQuery.isIfElseStmt(s))
+                leafStatements.addAll(GetAllLeafPlusOneNodes((IfStmt) s));
+            else if (StatementTypeQuery.isTryStmt(s))
+                leafStatements.addAll(GetAllLeafPlusOneNodes((TryStmt) s));
+        }
+        return leafStatements;
+    }
+
+    public List<Statement> GetAllLeafNodes(ForStmt forStmt){
+        List<Statement> leafStatements = new ArrayList<Statement>();
+        if(forStmt.getBody() == null){
+            return  leafStatements;
+        }
+        Statement inner = forStmt.getBody();
+        if(StatementTypeQuery.isBlockStmt(inner)){
+            leafStatements.addAll(GetAllLeafNodes((BlockStmt) inner));
+        }
+        else if(StatementTypeQuery.isLeafLevelStatement(inner)){
+            leafStatements.add(inner);
+        }
+
+        return  leafStatements;
+
+    }
+
+    public List<Statement> GetAllLeafPlusOneNodes(ForStmt forStmt){
+        List<Statement> plusOneStatements = new ArrayList<Statement>();
+        if(forStmt.getBody() == null){
+            //plusOneStatements.add(forStmt);
+            return  plusOneStatements;
+        }
+
+
+
+        Statement inner = forStmt.getBody();
+        if(StatementTypeQuery.isBlockStmt(inner)){
+            int depth = GetHeighestDepthLevel((BlockStmt)inner);
+            if(depth == 1){
+              plusOneStatements.add(forStmt);
+            }
+            else{
+                plusOneStatements.addAll(GetAllLeafPlusOneNodes(((BlockStmt) inner)));
+            }
+
+        }
+        else if(StatementTypeQuery.isLeafLevelStatement(inner)){
+            //leafStatements.add(inner);
+            plusOneStatements.add(forStmt);
+        }
+
+        return  plusOneStatements;
+
+    }
+
+
+    public List<Statement> GetAllLeafNodes(ForeachStmt foreachStmt){
+        List<Statement> leafStatements = new ArrayList<Statement>();
+        if(foreachStmt.getBody() == null){
+            return  leafStatements;
+        }
+        Statement inner = foreachStmt.getBody();
+        if(StatementTypeQuery.isBlockStmt(inner)){
+            leafStatements.addAll(GetAllLeafNodes((BlockStmt) inner));
+        }
+        else if(StatementTypeQuery.isExprStmt(inner)){
+            leafStatements.add(inner);
+        }
+
+        return  leafStatements;
+
+    }
+
+
+    public List<Statement> GetAllLeafPlusOneNodes(ForeachStmt foreachStmt){
+        List<Statement> plusOneStatements = new ArrayList<Statement>();
+        if(foreachStmt.getBody() == null){
+
+            return plusOneStatements;
+        }
+        Statement inner = foreachStmt.getBody();
+        if(StatementTypeQuery.isBlockStmt(inner)){
+            int depth = GetHeighestDepthLevel((BlockStmt)inner);
+            if(depth == 1){
+                plusOneStatements.add(foreachStmt);
+            }
+            else{
+                plusOneStatements.addAll(GetAllLeafPlusOneNodes(((BlockStmt) inner)));
+            }
+
+        }
+
+
+        return  plusOneStatements;
+
+    }
+
+    public List<Statement> GetAllLeafNodes(WhileStmt whileStmt){
+        List<Statement> leafStatements = new ArrayList<Statement>();
+        if(whileStmt.getBody() == null){
+            return  leafStatements;
+        }
+        Statement inner = whileStmt.getBody();
+        if(StatementTypeQuery.isBlockStmt(inner)){
+            leafStatements.addAll(GetAllLeafNodes((BlockStmt) inner));
+        }
+        else if(StatementTypeQuery.isExprStmt(inner)){
+            leafStatements.add(inner);
+        }
+
+        return  leafStatements;
+
+    }
+
+    public List<Statement> GetAllLeafPlusOneNodes(WhileStmt whileStmt){
+        List<Statement> leafStatements = new ArrayList<Statement>();
+        if(whileStmt.getBody() == null){
+
+            return  leafStatements;
+        }
+        Statement inner = whileStmt.getBody();
+        if(StatementTypeQuery.isBlockStmt(inner)){
+            int depth = GetHeighestDepthLevel((BlockStmt)inner);
+            if(depth == 1){
+                leafStatements.add(whileStmt);
+            }
+            else{
+                leafStatements.addAll(GetAllLeafPlusOneNodes(((BlockStmt) inner)));
+            }
+
+        }
+
+
+        return  leafStatements;
+
+    }
+
+    public List<Statement> GetAllLeafNodes(IfStmt ifStmt){
+        List<Statement> leafStatements = new ArrayList<Statement>();
+        Statement ifpart = ifStmt.getThenStmt();
+        Statement elsePart = ifStmt.getElseStmt();
+
+        if(ifpart != null){
+            if(StatementTypeQuery.isLeafLevelStatement(ifpart))
+                leafStatements.add(ifpart);
+            else if(StatementTypeQuery.isBlockStmt(ifpart)){
+                leafStatements.addAll(GetAllLeafNodes((BlockStmt)ifpart));
+            }
+        }
+        if(elsePart != null){
+            if(StatementTypeQuery.isLeafLevelStatement(elsePart))
+                leafStatements.add(elsePart);
+            else if(StatementTypeQuery.isBlockStmt(elsePart))
+                leafStatements.addAll(GetAllLeafNodes((BlockStmt)elsePart));
+
+        }
+        return  leafStatements;
+    }
+
+    public List<Statement> GetAllLeafPlusOneNodes(IfStmt ifStmt){
+        List<Statement> leafStatements = new ArrayList<Statement>();
+        Statement ifpart = ifStmt.getThenStmt();
+        Statement elsePart = ifStmt.getElseStmt();
+        if(ifpart == null){
+            return leafStatements;
+        }
+        if(elsePart == null){
+            return  leafStatements;
+        }
+        if(ifpart != null){
+            if(StatementTypeQuery.isBlockStmt(ifpart)){
+                int depth = GetHeighestDepthLevel((BlockStmt) ifpart);
+                if(depth == 1){
+                  leafStatements.add(ifStmt)  ;
+                }
+                else{
+                    leafStatements.addAll(GetAllLeafPlusOneNodes(((BlockStmt)ifpart)));
+                }
+
+            }
+        }
+        if(elsePart != null){
+            if(StatementTypeQuery.isBlockStmt(elsePart)){
+                int depth = GetHeighestDepthLevel((BlockStmt) elsePart);
+                if(depth == 1){
+                    leafStatements.add(elsePart)  ;
+                }
+                else{
+                    leafStatements.addAll(GetAllLeafPlusOneNodes(((BlockStmt)elsePart)));
+                }
+
+            }
+        }
+        return  leafStatements;
+    }
+
+
+    public List<Statement> GetAllLeafNodes(TryStmt tryStmt){
+        List<Statement> leafStatements = new ArrayList<Statement>();
+        BlockStmt trypart = tryStmt.getTryBlock();
+        BlockStmt finallyPart = tryStmt.getFinallyBlock();
+
+        if(trypart != null){
+            if(StatementTypeQuery.isLeafLevelStatement(trypart))
+                leafStatements.add(trypart);
+            else
+                leafStatements.addAll(GetAllLeafNodes((BlockStmt)trypart));
+        }
+
+        //TODO: add catch block later, does not exist in netbeans so don't wrroy about it right now.
+
+        if(finallyPart != null){
+            if(StatementTypeQuery.isLeafLevelStatement(finallyPart))
+                leafStatements.add(finallyPart);
+            else
+                leafStatements.addAll(GetAllLeafNodes((BlockStmt)finallyPart));
+        }
+
+        return leafStatements;
+    }
+
+    public List<Statement> GetAllLeafPlusOneNodes(TryStmt tryStmt){
+        List<Statement> leafStatements = new ArrayList<Statement>();
+        BlockStmt trypart = tryStmt.getTryBlock();
+        BlockStmt finallyPart = tryStmt.getFinallyBlock();
+
+        if(trypart == null){
+            return leafStatements;
+        }
+        if(finallyPart == null)
+            return leafStatements;
+        if(trypart != null){
+            if(StatementTypeQuery.isBlockStmt(trypart)){
+                int depth = GetHeighestDepthLevel((BlockStmt)trypart);
+                if(depth == 1)
+                    leafStatements.add(trypart);
+                else
+                    leafStatements.addAll(GetAllLeafPlusOneNodes((BlockStmt)trypart));
+            }
+
+        }
+
+        //TODO: add catch block later, does not exist in netbeans so don't wrroy about it right now.
+
+        if(finallyPart != null){
+            if(StatementTypeQuery.isBlockStmt(finallyPart)){
+                int depth = GetHeighestDepthLevel((BlockStmt)finallyPart);
+                if(depth == 1)
+                    leafStatements.add(finallyPart);
+                else
+                    leafStatements.addAll(GetAllLeafPlusOneNodes((BlockStmt)finallyPart));
+            }
+
+        }
+
+        return leafStatements;
+    }
+
+
+
     public int GetHeighestDepthLevel(BlockStmt block){
         if(block.getStmts() == null)
             return 0;
@@ -64,8 +394,13 @@ public class TreeManipulator {
             }
             else if (s.getClass().getSimpleName().toString().equals("ForStmt")){
                 ForStmt forstmt = (ForStmt)s;
-                BlockStmt blkstmt = (BlockStmt)forstmt.getBody();
-                tempDepthLevels[i++] = GetHeighestDepthLevel(blkstmt);
+                if(StatementTypeQuery.isExprStmt(forstmt.getBody())){
+                    GetHeighestDepthLevel((ExpressionStmt) forstmt.getBody());
+                }
+                else {
+                    BlockStmt blkstmt = (BlockStmt) forstmt.getBody();
+                    tempDepthLevels[i++] = GetHeighestDepthLevel(blkstmt);
+                }
 
             }
             else if (s.getClass().getSimpleName().toString().equals("WhileStmt")){
@@ -102,13 +437,18 @@ public class TreeManipulator {
             }
             else{
                 Debugger.log(s);
+                System.out.println(s);
                 Debugger.log("*************** NOT IMPLEMENTED ***************************");
-                exit(-99);
+               // exit(-99);
             }
 
 
         }
         return 1 + FindMax(tempDepthLevels);
+    }
+
+    public int GetHeighestDepthLevel(ExpressionStmt stmt){
+        return 1;
     }
 
     private int GetHeighestDepthLevel(SwitchStmt s) {
@@ -176,30 +516,41 @@ public class TreeManipulator {
 
         int ifLength;
         int elseLength;
-        if(StatementTypeQuery.isExprStmt(ifStmt.getThenStmt()))
-            ifLength = 1;
-        else
-            ifLength = GetHeighestDepthLevel((BlockStmt)ifStmt.getThenStmt());
-        if(ifStmt.getElseStmt() != null && StatementTypeQuery.isExprStmt(ifStmt.getElseStmt()))
-            elseLength = 1;
-        else{
-            if(ifStmt.getElseStmt() != null){
-                if(StatementTypeQuery.isIfElseStmt(ifStmt.getElseStmt())){
-                    elseLength  = 1 + GetHeighestDepthLevel((IfStmt)ifStmt.getElseStmt());
+        try{
+            if(StatementTypeQuery.isExprStmt(ifStmt.getThenStmt()))
+                ifLength = 1;
+            else if(StatementTypeQuery.isReturnStmt(ifStmt.getThenStmt())){
+                ifLength = 1;
+            }
+            else
+                ifLength = GetHeighestDepthLevel((BlockStmt)ifStmt.getThenStmt());
+            if(ifStmt.getElseStmt() != null && StatementTypeQuery.isExprStmt(ifStmt.getElseStmt()))
+                elseLength = 1;
+            else{
+                if(ifStmt.getElseStmt() != null){
+                    if(StatementTypeQuery.isIfElseStmt(ifStmt.getElseStmt())){
+                        elseLength  = 1 + GetHeighestDepthLevel((IfStmt)ifStmt.getElseStmt());
+                    }
+                    else{
+                        elseLength = GetHeighestDepthLevel((BlockStmt)ifStmt.getElseStmt());
+                    }
+
                 }
                 else{
-                    elseLength = GetHeighestDepthLevel((BlockStmt)ifStmt.getElseStmt());
+                    elseLength = 0;
                 }
 
-            }
-            else{
-                elseLength = 0;
+
             }
 
+            return Math.max(ifLength,elseLength);
+
+        }catch (ClassCastException ex){
+            Debugger.log(ex.toString());
 
         }
+        return -1;
 
-        return Math.max(ifLength,elseLength);
 
     }
 

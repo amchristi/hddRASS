@@ -1,0 +1,31 @@
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-jexl3/src/main/java/org/apache/commons/jexl3/JexlArithmetic.java"
+-methodName
+isValid
+-className
+JexlArithmetic
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+" mvn -f /home/ubuntu/research/commons-jexl3/pom.xml compile"
+-runCommand
+"mvn -f /home/ubuntu/research/commons-jexl3/pom.xml test -Dtest=ArithmeticTest"
+-packageName "org.apache.commons.jexl3"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-jexl3/src/test/java/org/apache/commons/jexl3/ArithmeticTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.jexl3.ArithmeticTest"
+-totalTests 35
+-percentRemoval 20

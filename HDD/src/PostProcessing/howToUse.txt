@@ -1,0 +1,27 @@
+Original files:
+JexlArithmetic.java.
+JexmArithmetic_1_10.java as an example.
+
+
+Go to class diff calculator and print each statement that is being removed.
+JexlArithmetic_1_10_removed.java. NRemoved = {set of all statements that removed}.
+
+
+What are next steps?
+
+Compliment:
+JexlArithmeticTest_1_10_complement.java file.
+Then you take JexlArithmetic.java file.
+Then run the coverage tool that will add unique id in front of every line.
+
+Then run JexlARithmeticTest_1_10_complement.java file on the modified JexlArithmetic.java file.
+It will print UUID of all the statements that are executed. NExecuted = {set of all the statements that are executed by complement test file}
+
+first qustion: NRemoved is subset of NExcuted. 100% success. If not figure out success percentage.
+
+For example NRemoved has 5 statements. Nexecuted has 20 statements.  out of 5 statements only 4 are present in this 20 statements. Then success rate 80%.
+
+
+
+
+

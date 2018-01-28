@@ -1,11 +1,9 @@
 package JReduce;
 
 import ASTManipulation.ClassMethodLineManipulator;
+import ASTManipulation.StatementTypeQuery;
 import ASTManipulation.TreeManipulator;
-import Helper.Command;
-import Helper.Debugger;
-import Helper.FileWriterUtil;
-import Helper.Globals;
+import Helper.*;
 import japa.parser.JavaParser;
 import japa.parser.ParseException;
 import japa.parser.ast.CompilationUnit;
@@ -14,6 +12,7 @@ import japa.parser.ast.stmt.Statement;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -73,6 +72,15 @@ public class Reducer {
         ClassMethodLineManipulator cmlm = new ClassMethodLineManipulator(javaMethod.cu,javaMethod.testMethodName);
         highestDepthLevel = tree.GetHeigestDepthLevel();
         List<Statement> statements = cmlm.GetNthLevelStatementsFromMethodName(javaMethod.testMethodName,currentDepthLevel);
+        if(Globals.H1){
+            statements = applyHeuristicsH1(statements);
+        }
+        if(Globals.H3){
+            statements = applyHeuristicsH3(statements);
+        }
+        if(Globals.H2){
+            statements = applyHeuristicsH2(statements);
+        }
         if(statements != null)
             delta.c.addAll(statements);
         this.cu = javaMethod.cu;
@@ -85,12 +93,26 @@ public class Reducer {
         for(i=highestDepthLevel; i>0; i++){
             ClassMethodLineManipulator cmlm = new ClassMethodLineManipulator(javaMethod.cu,javaMethod.testMethodName);
             List<Statement> statements = cmlm.GetNthLevelStatementsFromMethodName(javaMethod.testMethodName,i);
+            if(Globals.H1){
+                statements = applyHeuristicsH1(statements);
+            }
+            if(Globals.H3){
+                statements = applyHeuristicsH3(statements);
+            }
+            if(Globals.H2){
+                statements = applyHeuristicsH2(statements);
+            }
+
             delta.c.addAll(statements);
             // use cu created in create initial delta for first time
             // but later, create and use new cu read from the file.
 
          }
     }
+
+
+
+
 
     public void ReduceSequentical() throws ParseException {
         Delta delta = this.delta;
@@ -103,6 +125,8 @@ public class Reducer {
 
         ITester tempTester = tester;
         int iteration = 0;
+        if(delta.c.size() == 0)
+            return;
 
 
         while (true) {
@@ -231,6 +255,32 @@ public class Reducer {
         }
 }
 
+    public void ReduceSequentialGreedy() throws ParseException {
+        if(delta.len() == 0)
+            return;
+        for (int i = delta.len()-1;i>= 0; i--){
+            List<Statement> statementList = new ArrayList<Statement>();
+            statementList.add((Statement) delta.c.get(i));
+            String str = this.cu.toString();
+            try{
+
+                if(!isResultOfTestRun(statementList)){
+                    Revert(str);
+                }
+                else{
+                    Debugger.log("************ greedy reduction successful *******************");
+                }
+
+            }
+            catch (InterruptedException ex){
+                Revert(str);
+            }
+
+
+
+        }
+    }
+
 
 
 
@@ -319,6 +369,50 @@ public class Reducer {
 
     }
 
+    private List<Statement> applyHeuristicsH3(List<Statement> statements){
+        List<Statement> newStatements = new ArrayList<Statement>();
+        for (Statement s: statements
+             ) {
+            try {
+                if(FileReaderUtil.Contains(Globals.h3PreComputedStatementFile,s.toString())){
+                   newStatements.add(s);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return newStatements;
+    }
+
+    private List<Statement> applyHeuristicsH1(List<Statement> statements){
+        List<Statement> newStatements = new ArrayList<Statement>();
+        for (Statement s: statements
+                ) {
+            try {
+                if(FileReaderUtil.Contains(Globals.h1PreComputedStatetmentFile,s.toString())){
+                    newStatements.add(s);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return newStatements;
+    }
+
+    private List<Statement> applyHeuristicsH2(List<Statement> statements){
+        List<Statement> newStatements = new ArrayList<Statement>();
+        for (Statement s: statements
+                ) {
+            if(isH2Statement(s))
+                newStatements.add(s);
+
+        }
+        return newStatements;
+    }
+
+    private boolean isH2Statement(Statement s){
+        return StatementTypeQuery.isIfElseStmt(s) || StatementTypeQuery.isExprStmt(s) || StatementTypeQuery.isReturnStmt(s) || StatementTypeQuery.isBlockStmt(s);
+    }
 
     /**
      * Created by arpit on 6/11/16.

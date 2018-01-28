@@ -1,0 +1,280 @@
+int size = edits.size();
+UndoableEdit e = edits.elementAt(i);
+e.die();
+alive = false;
+for (int i = size - 1; i >= 0; i--) {
+    UndoableEdit e = edits.elementAt(i);
+    e.die();
+}
+return inProgress;
+inProgress = false;
+this.trimEdits(indexOfNextAdd, edits.size() - 1);
+UndoableEdit edit = editToBeUndone();
+throw new CannotUndoException();
+undoTo(edit);
+throw new CannotUndoException();
+int i = edits.size() - 1;
+edits.get(i).undo();
+hasBeenDone = false;
+int size = edits.size();
+edits.get(i).redo();
+cs.fireChange();
+for (; i >= 0; i--) {
+    edits.get(i).undo();
+}
+int i = indexOfNextAdd;
+boolean done = false;
+UndoableEdit next = edits.get(--i);
+next.undo();
+done = next == edit;
+indexOfNextAdd = i;
+i++;
+edits.get(i).redo();
+while (!done) {
+    UndoableEdit next = edits.get(--i);
+    next.undo();
+    done = next == edit;
+}
+UndoableEdit edit = editToBeUndone();
+return edit != null && edit.canUndo();
+return !isInProgress() && alive && hasBeenDone;
+if (inProgress) {
+    UndoableEdit edit = editToBeUndone();
+    return edit != null && edit.canUndo();
+} else {
+    return !isInProgress() && alive && hasBeenDone;
+}
+{
+    return !isInProgress() && alive && hasBeenDone;
+}
+UndoableEdit edit = editToBeRedone();
+throw new CannotRedoException();
+redoTo(edit);
+throw new CannotRedoException();
+int i = 0;
+int size = edits.size();
+edits.get(i).redo();
+hasBeenDone = true;
+edits.get(i).undo();
+cs.fireChange();
+for (; i < size; i++) {
+    edits.get(i).redo();
+}
+int i = indexOfNextAdd;
+boolean done = false;
+UndoableEdit next = edits.elementAt(i++);
+next.redo();
+done = next == edit;
+indexOfNextAdd = i;
+i -= 2;
+edits.get(i).undo();
+while (!done) {
+    UndoableEdit next = edits.elementAt(i++);
+    next.redo();
+    done = next == edit;
+}
+UndoableEdit edit = editToBeRedone();
+return edit != null && edit.canRedo();
+return !isInProgress() && alive && !hasBeenDone;
+if (inProgress) {
+    UndoableEdit edit = editToBeRedone();
+    return edit != null && edit.canRedo();
+} else {
+    return !isInProgress() && alive && !hasBeenDone;
+}
+{
+    return !isInProgress() && alive && !hasBeenDone;
+}
+undo();
+redo();
+if (indexOfNextAdd == edits.size()) {
+    undo();
+} else {
+    redo();
+}
+{
+    redo();
+}
+return canUndo();
+return canRedo();
+if (indexOfNextAdd == edits.size()) {
+    return canUndo();
+} else {
+    return canRedo();
+}
+{
+    return canRedo();
+}
+return limit;
+throw new RuntimeException("Attempt to call UndoManager.setLimit() after UndoManager.end() has been called");
+limit = l;
+trimForLimit();
+int size = edits.size();
+int halfLimit = limit / 2;
+int keepFrom = indexOfNextAdd - 1 - halfLimit;
+int keepTo = indexOfNextAdd - 1 + halfLimit;
+keepFrom++;
+keepTo -= keepFrom;
+keepFrom = 0;
+int delta = size - keepTo - 1;
+keepTo += delta;
+keepFrom += delta;
+trimEdits(keepTo + 1, size - 1);
+trimEdits(0, keepFrom - 1);
+UndoableEdit e = edits.elementAt(i);
+e.die();
+edits.removeElementAt(i);
+indexOfNextAdd -= to - from + 1;
+Enumeration cursor = edits.elements();
+UndoableEdit e = (UndoableEdit) cursor.nextElement();
+e.die();
+edits = new Vector<UndoableEdit>();
+indexOfNextAdd = 0;
+cs.fireChange();
+while (cursor.hasMoreElements()) {
+    UndoableEdit e = (UndoableEdit) cursor.nextElement();
+    e.die();
+}
+int count = edits.size();
+return edits.elementAt(count - 1);
+return null;
+int i = indexOfNextAdd;
+UndoableEdit edit = edits.elementAt(--i);
+return edit;
+return null;
+int count = edits.size();
+int i = indexOfNextAdd;
+UndoableEdit edit = edits.elementAt(i++);
+return edit;
+return null;
+addEdit(ue.getEdit());
+cs.fireChange();
+boolean retVal;
+trimEdits(indexOfNextAdd, edits.size() - 1);
+retVal = false;
+UndoableEdit last = lastEdit();
+edits.addElement(anEdit);
+retVal = true;
+indexOfNextAdd = edits.size();
+trimForLimit();
+return retVal;
+if (!inProgress) {
+    retVal = false;
+} else {
+    UndoableEdit last = lastEdit();
+    if (last == null) {
+        edits.addElement(anEdit);
+    } else if (!last.addEdit(anEdit)) {
+        if (anEdit.replaceEdit(last)) {
+            edits.removeElementAt(edits.size() - 1);
+        }
+        edits.addElement(anEdit);
+    }
+    retVal = true;
+}
+if (last == null) {
+    edits.addElement(anEdit);
+} else if (!last.addEdit(anEdit)) {
+    if (anEdit.replaceEdit(last)) {
+        edits.removeElementAt(edits.size() - 1);
+    }
+    edits.addElement(anEdit);
+}
+return false;
+Enumeration cursor = edits.elements();
+return true;
+return false;
+UndoableEdit last = lastEdit();
+return last.getPresentationName();
+return "";
+if (last != null) {
+    return last.getPresentationName();
+} else {
+    return "";
+}
+{
+    return "";
+}
+return editToBeUndone().getUndoPresentationName();
+return UIManager.getString("AbstractUndoableEdit.undoText");
+UndoableEdit last = lastEdit();
+return last.getUndoPresentationName();
+String name = getPresentationName();
+name = UIManager.getString("AbstractUndoableEdit.undoText") + " " + name;
+name = UIManager.getString("AbstractUndoableEdit.undoText");
+return name;
+return "";
+if (canUndo()) {
+    return editToBeUndone().getUndoPresentationName();
+} else {
+    return UIManager.getString("AbstractUndoableEdit.undoText");
+}
+{
+    return UIManager.getString("AbstractUndoableEdit.undoText");
+}
+if (last != null) {
+    return last.getUndoPresentationName();
+} else {
+    String name = getPresentationName();
+    if (!"".equals(name)) {
+        name = UIManager.getString("AbstractUndoableEdit.undoText") + " " + name;
+    } else {
+        name = UIManager.getString("AbstractUndoableEdit.undoText");
+    }
+    return name;
+}
+if (!"".equals(name)) {
+    name = UIManager.getString("AbstractUndoableEdit.undoText") + " " + name;
+} else {
+    name = UIManager.getString("AbstractUndoableEdit.undoText");
+}
+{
+    name = UIManager.getString("AbstractUndoableEdit.undoText");
+}
+{
+    return "";
+}
+UndoableEdit last = lastEdit();
+return editToBeRedone().getRedoPresentationName();
+return UIManager.getString("AbstractUndoableEdit.redoText");
+return super.getRedoPresentationName();
+String name = getPresentationName();
+name = UIManager.getString("AbstractUndoableEdit.redoText") + " " + name;
+name = UIManager.getString("AbstractUndoableEdit.redoText");
+return name;
+return "";
+if (canRedo()) {
+    return editToBeRedone().getRedoPresentationName();
+} else {
+    return UIManager.getString("AbstractUndoableEdit.redoText");
+}
+{
+    return UIManager.getString("AbstractUndoableEdit.redoText");
+}
+{
+    return super.getRedoPresentationName();
+}
+if (!"".equals(name)) {
+    name = UIManager.getString("AbstractUndoableEdit.redoText") + " " + name;
+} else {
+    name = UIManager.getString("AbstractUndoableEdit.redoText");
+}
+{
+    name = UIManager.getString("AbstractUndoableEdit.redoText");
+}
+{
+    return "";
+}
+return getUndoPresentationName();
+return getRedoPresentationName();
+if (indexOfNextAdd == edits.size()) {
+    return getUndoPresentationName();
+} else {
+    return getRedoPresentationName();
+}
+{
+    return getRedoPresentationName();
+}
+return super.toString() + " hasBeenDone: " + hasBeenDone + " alive: " + alive + " inProgress: " + inProgress + " edits: " + edits + " limit: " + limit + " indexOfNextAdd: " + indexOfNextAdd;
+cs.addChangeListener(l);
+cs.removeChangeListener(l);

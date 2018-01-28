@@ -70,14 +70,25 @@ public class ClassDiffCalculator {
 
 
     public static void main(String[] args){
+
+       ;
+
+        ClassDiffCalculator diffCalculator = new ClassDiffCalculator("/home/ubuntu/backup/ManagerOriginal.java","/home/ubuntu/backup/ManagerAutomatic.java");
+        StatInfo s =diffCalculator.FindReductionInfo();
+        System.out.println(s);
+
+
+
+
+
         int percentage = 10 ;
-        String className = "Checksum";
+        String className = "StatisticalBarRenderer";
 
 
 
 
-        FileWriterUtil.writeLine("/home/ubuntu/temp.txt","\n");
-        for(int i = 1; i<=10;i++){
+        FileWriterUtil.writeLine("/home/ubuntu/tempStatements.txt","\n");
+        for(int i = 1; i<=7;i++){
             String filename = className + "_" + i + "_" + percentage + ".java";
             String firstFileName = "/home/ubuntu//results/reduced/" + className + "/" + className + ".java";
             String secondFileName = "/home/ubuntu//results/reduced/" + className + "/" + filename;

@@ -24,21 +24,19 @@ public class QuicksortTest {
         }
     }
 
-    @MethodLabel(level=1)
+    @MethodLabel(level = 1)
     @test
     public void testNull() {
         Quicksort sorter = new Quicksort();
         sorter.sort(null);
     }
 
-
-    @MethodLabel(level=0)
+    @MethodLabel(level = 0)
     @test
     public void test3() {
         Quicksort sorter = new Quicksort();
         sorter.sort(null);
     }
-
 
     @test
     public void test1() {
@@ -46,25 +44,22 @@ public class QuicksortTest {
         sorter.sort(null);
     }
 
-    public void test2(){
-
+    public void test2() {
     }
 
-    @MethodLabel(level=1)
+    @MethodLabel(level = 1)
     @test
     public void testNull1() {
         Quicksort sorter = new Quicksort();
         sorter.sort(null);
     }
 
-
-    @MethodLabel(level=0)
+    @MethodLabel(level = 0)
     @test
     public void test31() {
         Quicksort sorter = new Quicksort();
         sorter.sort(null);
     }
-
 
     @test
     public void test11() {
@@ -72,8 +67,6 @@ public class QuicksortTest {
         sorter.sort(null);
     }
 
-    public void test21(){
-
+    public void test21() {
     }
-
 }

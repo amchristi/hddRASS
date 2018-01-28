@@ -116,6 +116,9 @@ public class MethodDiffCalculator {
             originalStatementExtended.addAll(currentPoolOfOriginalStatement.stream().map(x -> new ExtendedStatement(x,0)).collect(Collectors.toList()));
             if(currentPoolOfOriginalStatement.size() != currentPoolOfReducedStatement.size()){
                 statInfo.numberOfNodesReduced += Math.max(currentPoolOfOriginalStatement.size() - currentPoolOfReducedStatement.size(),0);
+                if(statInfo.numberOfNodesReduced > 0){
+                    System.out.println("here");
+                }
                 originalStatementExtended.forEach(x -> {
                     for (ExtendedStatement e: lastpoolOfOriginalStatementExtended) {
                         if(treeOriginal.ContainsStatement(x.statement,e.statement))
@@ -154,6 +157,7 @@ public class MethodDiffCalculator {
                 statInfo.highestlevelFromLeafNode = 1;
             }
         }
+
 
         return statInfo;
     }

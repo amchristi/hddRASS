@@ -1,0 +1,75 @@
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/ant/src/main/org/apache/tools/ant/taskdefs/Checksum.java"
+-methodName
+isValid
+-className
+Checksum
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-runCommand
+"ant -buildfile /home/ubuntu/research/ant/build.xml junit-tests"
+-buildCommand
+"ant -buildfile /home/ubuntu/research/ant/build.xml build"
+-packageName
+"org.apache.tools.ant.taskdefs"
+-timeoutForInfiniteLoop
+3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/ant/src/tests/junit/org/apache/tools/ant/taskdefs/ChecksumTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName
+"org.apache.tools.ant.taskdefs.ChecksumTest"
+-totalTests 13
+-percentRemoval 20
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/ant/src/main/org/apache/tools/ant/taskdefs/FixCRLF.java"
+-methodName
+isValid
+-className
+FixCRLF
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-runCommand
+"ant -buildfile /home/ubuntu/research/ant/build.xml junit-tests"
+-buildCommand
+"ant -buildfile /home/ubuntu/research/ant/build.xml build"
+-packageName
+"org.apache.tools.ant.taskdefs"
+-timeoutForInfiniteLoop
+3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/ant/src/tests/junit/org/apache/tools/ant/taskdefs/FixCrLfTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName
+"org.apache.tools.ant.taskdefs.FixCrLfTest"
+-totalTests 34
+-percentRemoval 20
+
+
+
+

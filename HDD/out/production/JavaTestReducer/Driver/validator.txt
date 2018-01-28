@@ -1,0 +1,30 @@
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-validator/src/main/java/org/apache/commons/validator/routines/EmailValidator.java"
+-methodName
+isValid
+-className
+EmailValidator
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/commons-validator/pom.xml"
+-runCommand
+"mvn -Dtest=EmailValidatorTest -f /home/ubuntu/research/commons-validator/pom.xml test"
+-packageName "org.apache.commons.validator.routines"
+-timeoutForInfiniteLoop 30
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-validator/src/test/java/org/apache/commons/validator/routines/EmailValidatorTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.validator.routines.EmailValidatorTest"
+-totalTests 18

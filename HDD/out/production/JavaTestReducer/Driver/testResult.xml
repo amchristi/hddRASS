@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.bbn.marti.Tests" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-08-24T15:45:07" hostname="dhcp89-77-152.bbn.com" time="1.58">
+    <properties/>
+    <testcase name="testSaTransmission" classname="com.bbn.marti.Tests" time="1.478"/>
+    <testcase name="testImageTransmission" classname="com.bbn.marti.Tests" time="0.0"/>
+    <testcase name="testImageSave" classname="com.bbn.marti.Tests" time="0.101"/>
+    <system-out><![CDATA[11:45:07.847 [Test worker] TRACE m.d.i.core.analytics.Analytics - Registering new Analytics instance for thread 11
+11:45:07.965 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: network.multicastTTL: 5
+11:45:07.965 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: network.input.streamtcp.protocol: stcp
+11:45:07.965 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: network.input.streamtcp.port: 8088
+11:45:07.965 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: submission.ignoreStaleMessages: false
+11:45:07.966 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: submission.validateXml: false
+11:45:07.966 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: subscription.reloadPersistent: false
+11:45:07.966 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: repository.enable: false
+11:45:07.966 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: repository.numDbConnections: 10
+11:45:07.966 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: repository.primaryKeyBatchSize: 500
+11:45:07.966 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: repository.insertionBatchSize: 500
+11:45:07.967 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: repository.connection.url: jdbc:postgresql://127.0.0.1:5432/cot
+11:45:07.967 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: repository.connection.username: dummy
+11:45:07.967 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: repository.connection.password: password
+11:45:07.967 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: filter.thumbnail.enable: false
+11:45:07.967 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: filter.thumbnail.pixels: 100
+11:45:07.967 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: filter.urladd.thumburl: false
+11:45:07.967 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: filter.urladd.fullurl: true
+11:45:07.967 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: filter.urladd.overwriteurl: true
+11:45:07.968 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: filter.flowtag.enable: true
+11:45:07.968 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: filter.flowtag.text: marti1
+11:45:07.968 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: filter.streamingbroker.enable: true
+11:45:07.968 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: buffer.latestSA.enable: false
+11:45:07.968 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: buffer.queue.capacity: 10
+11:45:07.968 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: security.tls.context: TLSv1
+11:45:07.968 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: security.tls.keymanager: SunX509
+11:45:07.968 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: security.tls.keystore: JKS
+11:45:07.968 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: security.tls.keystoreFile: certs/marti.jks
+11:45:07.968 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: security.tls.keystorePass: atakatak
+11:45:07.969 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: security.tls.truststore: JKS
+11:45:07.969 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: security.tls.truststoreFile: certs/truststore.jks
+11:45:07.969 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - CoreConfig property set: security.tls.truststorePass: atakatak
+11:45:07.969 [Thread-4] DEBUG com.bbn.marti.service.CoreConfig - Initializing CoreConfig for PriorityQueueMonitor...
+Connected to CotDB!
+11:45:08.116 [Thread-4] INFO  com.bbn.marti.service.CoreConfig - Configuring network input: streamtcp
+11:45:08.121 [Thread-4] DEBUG c.b.m.i.SubmissionServiceFunctionalUnit -  input: com.bbn.marti.immortals.net.CotServerChannel@2f793fb3
+11:45:08.121 [Thread-4] DEBUG BaseService - Starting Submission
+11:45:08.122 [Thread-4] DEBUG c.b.m.i.net.tcp.TcpSocketServer - starting thread to listen on Server TCP Transport 128.89.77.152:8088
+11:45:08.122 [Thread-4] DEBUG BaseService - Starting Broker
+11:45:08.126 [Thread-8] TRACE m.d.i.core.analytics.Analytics - Registering new Analytics instance for thread 22
+11:45:08.133 [Thread-8] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 22 to thread 23
+11:45:08.133 [Thread-8] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 22 to thread 24
+11:45:08.138 [TCPServer:8088] INFO  c.b.m.service.SubscriptionManager - Added Subscription: uid: 1; to: com.bbn.marti.immortals.data.CotChannelData@221a705d; xpath: null
+11:45:08.142 [Thread-8] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 22 to thread 27
+11:45:08.143 [Thread-8] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 22 to thread 28
+Automatically sending Images every 1000 milliseconds.
+11:45:08.143 [Thread-14] TRACE m.d.i.core.analytics.Analytics - Registering new Analytics instance for thread 29
+11:45:08.145 [Thread-14] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 29 to thread 30
+11:45:08.145 [Thread-14] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 29 to thread 31
+11:45:08.145 [Thread-14] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 29 to thread 32
+11:45:08.146 [Thread-14] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 29 to thread 33
+Automatically sending Images every 1000 milliseconds.
+11:45:08.146 [TCPServer:8088] INFO  c.b.m.service.SubscriptionManager - Added Subscription: uid: 2; to: com.bbn.marti.immortals.data.CotChannelData@38ed0e92; xpath: null
+11:45:08.146 [Thread-20] TRACE m.d.i.core.analytics.Analytics - Registering new Analytics instance for thread 36
+11:45:08.148 [Thread-20] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 36 to thread 37
+11:45:08.148 [Thread-20] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 36 to thread 38
+11:45:08.149 [Thread-20] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 36 to thread 39
+11:45:08.149 [Thread-20] TRACE m.d.i.core.analytics.Analytics - Registering Analytics instance from thread 36 to thread 40
+Automatically sending Images every 1000 milliseconds.
+11:45:08.149 [TCPServer:8088] INFO  c.b.m.service.SubscriptionManager - Added Subscription: uid: 3; to: com.bbn.marti.immortals.data.CotChannelData@4eefe7e1; xpath: null
+11:45:08.258 [Thread-23] INFO  c.b.a.service.SAIntentCLIReceiver - Sending location: (61.25781941817414, 99.06603239250255)
+11:45:08.258 [Thread-12] INFO  c.b.a.service.SAIntentCLIReceiver - Sending location: (61.25781941817414, 99.06603239250255)
+11:45:08.259 [Thread-17] INFO  c.b.a.service.SAIntentCLIReceiver - Sending location: (61.25781941817414, 99.06603239250255)
+11:45:08.301 [pool-2-thread-2] INFO  c.b.m.service.SubscriptionManager -   Set callsign for subscription: 2 to null
+11:45:08.301 [pool-2-thread-1] INFO  c.b.m.service.SubscriptionManager -   Set callsign for subscription: 1 to null
+11:45:08.301 [pool-2-thread-3] INFO  c.b.m.service.SubscriptionManager -   Set callsign for subscription: 3 to null
+11:45:08.318 [Thread-15] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client0's location (61.25781941817414, 99.06603239250255)
+11:45:08.318 [Thread-21] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client1's location (61.25781941817414, 99.06603239250255)
+11:45:08.318 [Thread-9] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client1's location (61.25781941817414, 99.06603239250255)
+11:45:08.320 [Thread-21] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client0's location (61.25781941817414, 99.06603239250255)
+11:45:08.320 [Thread-15] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client2's location (61.25781941817414, 99.06603239250255)
+11:45:08.320 [Thread-9] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client2's location (61.25781941817414, 99.06603239250255)
+11:45:09.209 [Thread-13] INFO  c.b.a.service.SAIntentCLIReceiver - Sending Image sample_image.jpg with location (61.25781941817414, 99.06603239250255)
+11:45:09.209 [Thread-18] INFO  c.b.a.service.SAIntentCLIReceiver - Sending Image sample_image.jpg with location (61.25781941817414, 99.06603239250255)
+11:45:09.209 [Thread-24] INFO  c.b.a.service.SAIntentCLIReceiver - Sending Image sample_image.jpg with location (61.25781941817414, 99.06603239250255)
+11:45:09.213 [pool-2-thread-1] INFO  c.b.m.service.SubscriptionManager -   Set callsign for subscription: 1 to null
+11:45:09.213 [pool-2-thread-3] INFO  c.b.m.service.SubscriptionManager -   Set callsign for subscription: 3 to null
+11:45:09.213 [Service:Submission] DEBUG com.bbn.filter.ImageFormattingFilter - stripping 1 images from the cot message
+11:45:09.213 [pool-2-thread-2] INFO  c.b.m.service.SubscriptionManager -   Set callsign for subscription: 2 to null
+11:45:09.224 [pool-2-thread-1] INFO  c.b.m.i.p.TcpTransportToCotChannelData - Wrote image to '1503589507844/image-0.jpg'.
+11:45:09.224 [pool-2-thread-3] INFO  c.b.m.i.p.TcpTransportToCotChannelData - Wrote image to '1503589507844/image-2.jpg'.
+11:45:09.224 [pool-2-thread-2] INFO  c.b.m.i.p.TcpTransportToCotChannelData - Wrote image to '1503589507844/image-1.jpg'.
+11:45:09.261 [Thread-17] INFO  c.b.a.service.SAIntentCLIReceiver - Sending location: (61.25681941817414, 99.06603239250255)
+11:45:09.261 [Thread-23] INFO  c.b.a.service.SAIntentCLIReceiver - Sending location: (61.25681941817414, 99.06603239250255)
+11:45:09.261 [Thread-12] INFO  c.b.a.service.SAIntentCLIReceiver - Sending location: (61.25681941817414, 99.06603239250255)
+11:45:09.262 [pool-2-thread-2] INFO  c.b.m.service.SubscriptionManager -   Set callsign for subscription: 2 to null
+11:45:09.263 [pool-2-thread-3] INFO  c.b.m.service.SubscriptionManager -   Set callsign for subscription: 3 to null
+11:45:09.263 [pool-2-thread-1] INFO  c.b.m.service.SubscriptionManager -   Set callsign for subscription: 1 to null
+11:45:09.263 [Service:Broker] DEBUG com.bbn.filter.ImageFormattingFilter - reattaching 1 to the cot, with format FULL_IMAGE
+11:45:09.264 [Service:Submission] DEBUG com.bbn.filter.ImageFormattingFilter - stripping 1 images from the cot message
+11:45:09.271 [Thread-15] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client0's image Client0-1503589509271.jpg with location (61.25781941817414, 99.06603239250255)
+11:45:09.272 [Thread-21] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client0's image Client0-1503589509271.jpg with location (61.25781941817414, 99.06603239250255)
+11:45:09.275 [Service:Broker] DEBUG com.bbn.filter.ImageFormattingFilter - reattaching 1 to the cot, with format FULL_IMAGE
+11:45:09.275 [Service:Submission] DEBUG com.bbn.filter.ImageFormattingFilter - stripping 1 images from the cot message
+11:45:09.283 [Thread-15] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client2's image Client2-1503589509283.jpg with location (61.25781941817414, 99.06603239250255)
+11:45:09.283 [Thread-9] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client2's image Client2-1503589509283.jpg with location (61.25781941817414, 99.06603239250255)
+11:45:09.284 [Service:Broker] DEBUG com.bbn.filter.ImageFormattingFilter - reattaching 1 to the cot, with format FULL_IMAGE
+11:45:09.286 [Thread-15] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client2's location (61.25681941817414, 99.06603239250255)
+11:45:09.287 [Thread-15] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client0's location (61.25681941817414, 99.06603239250255)
+11:45:09.291 [Thread-21] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client1's image Client1-1503589509291.jpg with location (61.25781941817414, 99.06603239250255)
+11:45:09.293 [Thread-21] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client0's location (61.25681941817414, 99.06603239250255)
+11:45:09.293 [Thread-9] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client1's image Client1-1503589509292.jpg with location (61.25781941817414, 99.06603239250255)
+{"validatorIdentifier":"client-location-share","currentState":"SUCCESS","errorMessages":[],"detailMessages":["Client0\u003c-FieldLocationUpdated-Client1","Client0\u003c-FieldLocationUpdated-Client2","Client1\u003c-FieldLocationUpdated-Client0","Client1\u003c-FieldLocationUpdated-Client2","Client2\u003c-FieldLocationUpdated-Client0","Client2\u003c-FieldLocationUpdated-Client1"]}
+{"validatorIdentifier":"client-image-share","currentState":"SUCCESS","errorMessages":[],"detailMessages":["Client0\u003c-FieldImageReceived-Client1","Client0\u003c-FieldImageReceived-Client2","Client1\u003c-FieldImageReceived-Client0","Client1\u003c-FieldImageReceived-Client2","Client2\u003c-FieldImageReceived-Client0","Client2\u003c-FieldImageReceived-Client1"]}
+11:45:09.295 [Thread-9] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client2's location (61.25681941817414, 99.06603239250255)
+11:45:09.295 [Thread-21] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client1's location (61.25681941817414, 99.06603239250255)
+11:45:09.296 [Thread-9] INFO  c.b.a.service.SAIntentCLIReceiver - Received Client1's location (61.25681941817414, 99.06603239250255)
+]]></system-out>
+    <system-err><![CDATA[]]></system-err>
+</testsuite>

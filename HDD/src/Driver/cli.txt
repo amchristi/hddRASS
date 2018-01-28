@@ -1,0 +1,31 @@
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/commons-cli/src/main/java/org/apache/commons/cli/Option.java"
+-methodName
+isValid
+-className
+Option
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"mvn compile -f /home/ubuntu/research/commons-cli/pom.xml"
+-runCommand
+"mvn -Dtest=OptionTest -f /home/ubuntu/research/commons-cli/pom.xml -DfailIfNoTests=false test"
+-packageName "org.apache.commons.cli"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/commons-cli/src/test/java/org/apache/commons/cli/OptionTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "org.apache.commons.cli.OptionTest"
+-totalTests 9
+-percentRemoval 10

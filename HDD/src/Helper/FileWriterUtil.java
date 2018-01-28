@@ -35,20 +35,30 @@ public class FileWriterUtil {
         BufferedWriter output = null;
         try {
             java.io.File file = new File(fullFilePath);
-            output = new BufferedWriter(new FileWriter(file));
+            FileWriter fileWriter = new FileWriter(file);
+            output = new BufferedWriter(fileWriter);
 
             output.append(text);
             //output.newLine();
+            output.close();
         } catch ( IOException e ) {
             e.printStackTrace();
-        } finally {
-            if ( output != null ) {
-                try {
-                    output.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+        }
+    }
+
+    public static void writeLine2(String fullFilePath, String text ){
+
+        BufferedWriter output = null;
+        try {
+            java.io.File file = new File(fullFilePath);
+            FileWriter fileWriter = new FileWriter(file);
+            output = new BufferedWriter(fileWriter);
+
+            output.append(text);
+            output.newLine();
+            output.close();
+        } catch ( IOException e ) {
+            e.printStackTrace();
         }
     }
 

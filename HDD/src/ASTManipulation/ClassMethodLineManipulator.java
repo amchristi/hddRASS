@@ -3,10 +3,7 @@ package ASTManipulation;
 
 import Helper.Debugger;
 import japa.parser.ast.CompilationUnit;
-import japa.parser.ast.body.BodyDeclaration;
-import japa.parser.ast.body.FieldDeclaration;
-import japa.parser.ast.body.MethodDeclaration;
-import japa.parser.ast.body.TypeDeclaration;
+import japa.parser.ast.body.*;
 import japa.parser.ast.expr.Expression;
 import japa.parser.ast.stmt.*;
 import ASTManipulation.*;
@@ -108,6 +105,40 @@ public class ClassMethodLineManipulator {
         List<Statement> newSetOfStatement = new ArrayList<Statement>();
         ArrayList<BodyDeclaration> newBody = new ArrayList<BodyDeclaration>();
         for(TypeDeclaration  t : _cu.getTypes()){
+            if(!((ClassOrInterfaceDeclaration) t).isInterface()){
+                if(t.getName().toString().equals(className)){
+                    for (BodyDeclaration b : t.getMembers()) {
+                        if (b.getClass().getSimpleName().toString().equals("MethodDeclaration")) {
+                            MethodDeclaration m = (MethodDeclaration) b;
+                            if (m.getName().toString().equals(methodName)) {
+
+                                //ArrayList<Statement> x = ReduceStatementsFromBlock(m.getBody(), statementToBeReduced);
+                                Reducer reducer = new Reducer();
+                                BlockStmt b1 =  reducer.reduce(m.getBody(),statementToBeReduced);
+
+
+
+                                m.setBody(b1);
+
+                                System.out.println("Final " +m.getBody().toString());
+                                newBody.add(m);
+
+                            }
+                            else{
+                                newBody.add(m);
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    public List<Statement> GetLeafStatements(String className, String methodName){
+        List<Statement> newSetOfStatement = new ArrayList<Statement>();
+        ArrayList<BodyDeclaration> newBody = new ArrayList<BodyDeclaration>();
+        for(TypeDeclaration  t : _cu.getTypes()){
             if(t.getName().toString().equals(className)){
                 for (BodyDeclaration b : t.getMembers()) {
                     if (b.getClass().getSimpleName().toString().equals("MethodDeclaration")) {
@@ -115,24 +146,22 @@ public class ClassMethodLineManipulator {
                         if (m.getName().toString().equals(methodName)) {
 
                             //ArrayList<Statement> x = ReduceStatementsFromBlock(m.getBody(), statementToBeReduced);
-                            Reducer reducer = new Reducer();
-                            BlockStmt b1 =  reducer.reduce(m.getBody(),statementToBeReduced);
+                            TreeManipulator treeManipulator = new TreeManipulator(this._cu,m.getName());
+                            newSetOfStatement.addAll(treeManipulator.GetAllLeafNodes());
 
 
+                            newSetOfStatement.addAll(treeManipulator.GetAllLeafPlusOneNodes(m.getBody()));
 
-                            m.setBody(b1);
-
-                            System.out.println("Final " +m.getBody().toString());
-                            newBody.add(m);
 
                         }
                         else{
-                            newBody.add(m);
+
                         }
                     }
                 }
             }
         }
+        return newSetOfStatement;
     }
 
     public ArrayList<Statement> ReduceStatementsFromBlock(BlockStmt block){
@@ -183,64 +212,71 @@ public class ClassMethodLineManipulator {
 
     public List<Statement> GetNthLevelStatementsFromMethodName(String methodName, int n){
         for (TypeDeclaration t : _cu.getTypes()) {
-            for (BodyDeclaration b : t.getMembers()) {
-                if (b.getClass().getSimpleName().toString().equals("MethodDeclaration")) {
-                    MethodDeclaration m = (MethodDeclaration)b;
-                    if(m.getName().toString().equals(methodName)) {
-                        List<Statement> blockStatements = m.getBody().getStmts();
+            if(!((ClassOrInterfaceDeclaration) t).isInterface()){
+                for (BodyDeclaration b : t.getMembers()) {
+                    if (b.getClass().getSimpleName().toString().equals("MethodDeclaration")) {
+                        MethodDeclaration m = (MethodDeclaration)b;
+                        if(m.getName().toString().equals(methodName)) {
+                            List<Statement> blockStatements = m.getBody().getStmts();
 
-                        List<Statement> nthLevelStmnts = null;
-                        try {
-                            nthLevelStmnts = GetNthLevelFromBlock(blockStatements,n);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        if(nthLevelStmnts != null){
-                            for (Statement s: nthLevelStmnts) {
-                                System.out.print(s.hashCode());
-                                System.out.println(" " + s);
-                                return nthLevelStmnts;
-
+                            List<Statement> nthLevelStmnts = null;
+                            try {
+                                nthLevelStmnts = GetNthLevelFromBlock(blockStatements,n);
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
+                            if(nthLevelStmnts != null){
+                                for (Statement s: nthLevelStmnts) {
+                                    System.out.print(s.hashCode());
+                                    System.out.println(" " + s);
+                                    return nthLevelStmnts;
+
+                                }
+                            }
+
                         }
 
                     }
 
                 }
-
             }
+
         }
-        return null;
+        return new ArrayList<Statement>();
     };
 
     public boolean IsHighestDepthLevel(String methodName, int n){
         for (TypeDeclaration t : _cu.getTypes()) {
-            for (BodyDeclaration b : t.getMembers()) {
-                if (b.getClass().getSimpleName().toString().equals("MethodDeclaration")) {
-                    MethodDeclaration m = (MethodDeclaration)b;
-                    if(m.getName().toString().equals(methodName)) {
-                        List<Statement> blockStatements = m.getBody().getStmts();
-                        List<Statement> nthLevelStmnts = null;
-                        try {
-                            nthLevelStmnts = GetNthLevelFromBlock(blockStatements,n);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        if(nthLevelStmnts != null){
-                            for (Statement s: nthLevelStmnts) {
-                                System.out.println(s);
-
+            if(!((ClassOrInterfaceDeclaration) t).isInterface()){
+                for (BodyDeclaration b : t.getMembers()) {
+                    if (b.getClass().getSimpleName().toString().equals("MethodDeclaration")) {
+                        MethodDeclaration m = (MethodDeclaration)b;
+                        if(m.getName().toString().equals(methodName)) {
+                            List<Statement> blockStatements = m.getBody().getStmts();
+                            List<Statement> nthLevelStmnts = null;
+                            try {
+                                nthLevelStmnts = GetNthLevelFromBlock(blockStatements,n);
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
-                        }
-                        else{
-                            return true;
+                            if(nthLevelStmnts != null){
+                                for (Statement s: nthLevelStmnts) {
+                                    System.out.println(s);
+
+                                }
+                            }
+                            else{
+                                return true;
+                            }
+
                         }
 
                     }
 
                 }
-
             }
+            return false;
+
         }
         return false;
     };
@@ -270,6 +306,9 @@ public class ClassMethodLineManipulator {
             else if(s.getClass().getSimpleName().toString().equals("ReturnStmt") ){
                 tempDepthLevels[i++] = 0;
             }
+            else if(StatementTypeQuery.isLeafLevelStatement(s)){
+                tempDepthLevels[i++] =  0;
+            }
             else if (s.getClass().getSimpleName().toString().equals("ForStmt")){
                 ForStmt forstmt = (ForStmt)s;
                 BlockStmt blkstmt = (BlockStmt)forstmt.getBody();
@@ -285,7 +324,44 @@ public class ClassMethodLineManipulator {
             }
             else if(s.getClass().getSimpleName().toString().equals("IfStmt")){
                 IfStmt ifStmt = (IfStmt)s;
-                tempDepthLevels[i++] = GetHeighestDepthLevel((BlockStmt)ifStmt.getThenStmt());
+                int ifParthDepth = 0;
+                int elsePartDepth = 0;
+                Statement elsePart = ifStmt.getElseStmt();
+                if(StatementTypeQuery.isBlockStmt(ifStmt.getThenStmt())){
+                    ifParthDepth = GetHeighestDepthLevel((BlockStmt)ifStmt.getThenStmt());
+                    //tempDepthLevels[i++] = GetHeighestDepthLevel((BlockStmt)ifStmt.getThenStmt());
+                }
+                else if(StatementTypeQuery.isLeafLevelStatement(ifStmt.getThenStmt()))
+                    ifParthDepth = 1;
+                else{
+                    ifParthDepth = 0;
+                    //tempDepthLevels[i++] = 0;
+                }
+
+                if(elsePart != null){
+                    if(StatementTypeQuery.isLeafLevelStatement(elsePart))
+                        elsePartDepth = 1;
+                    else if(StatementTypeQuery.isBlockStmt(elsePart)){
+                        elsePartDepth = GetHeighestDepthLevel((BlockStmt) elsePart);
+                    }
+                    else
+                        elsePartDepth = 0;
+                }
+
+                tempDepthLevels[i++] = Math.max(ifParthDepth,elsePartDepth);
+
+
+
+
+            }
+            else if(StatementTypeQuery.isTryStmt(s)){
+
+                //todo: assumption, try block is the deepest block. remove assumption and fix.
+                TryStmt tryStmt = (TryStmt)s;
+                BlockStmt tryBlock = tryStmt.getTryBlock();
+                tempDepthLevels[i++] = GetHeighestDepthLevel(tryBlock);
+
+
             }
         }
         return 1 + FindMax(tempDepthLevels);
@@ -345,6 +421,9 @@ public class ClassMethodLineManipulator {
                     Statement elsePart = ((IfStmt)s).getElseStmt();
                     if(ifpart != null){
                         if(StatementTypeQuery.isExprStmt(ifpart)){
+                            levelStatements.add(ifpart);
+                        }
+                        else if(StatementTypeQuery.isReturnStmt(ifpart)){
                             levelStatements.add(ifpart);
                         }
                         else{

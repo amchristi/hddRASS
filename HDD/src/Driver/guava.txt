@@ -1,0 +1,2 @@
+mvn -Dtest=HashBasedTableTest -f /home/ubuntu/research/guava/pom.xml -DfailIfNoTests=false test
+

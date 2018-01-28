@@ -128,7 +128,7 @@ public class Reducer {
             Statement ifPart = ifStmt.getThenStmt();
             Statement elsePart = ifStmt.getElseStmt();
             if(!EmptyStatementChecker.isEmptyStatement(ifPart)){
-               if(!StatementTypeQuery.isExprStmt(ifPart)){
+               if(!StatementTypeQuery.isLeafLevelStatement(ifPart)){
                    ifStmt.setThenStmt(reduce((BlockStmt)ifPart,l));
                }
                 else{
@@ -139,7 +139,7 @@ public class Reducer {
             }
 
             if(!EmptyStatementChecker.isEmptyStatement(elsePart)){
-                if(!StatementTypeQuery.isExprStmt(ifPart)){
+                if(!StatementTypeQuery.isLeafLevelStatement(ifPart)){
                     if(StatementTypeQuery.isBlockStmt(elsePart)){
                         ifStmt.setElseStmt(reduce((BlockStmt)elsePart,l));
                     }

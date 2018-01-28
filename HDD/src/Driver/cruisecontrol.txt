@@ -1,0 +1,70 @@
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/cruisecontrol/main/src/net/sourceforge/cruisecontrol/builders/AntScript.java"
+-methodName
+isValid
+-className
+AntScript
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"ant -buildfile /home/ubuntu/research/cruisecontrol/main/build.xml compile"
+-runCommand
+"ant -buildfile /home/ubuntu/research/cruisecontrol/main/build.xml test"
+-packageName "net.sourceforge.cruisecontrol.builders"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/AntScriptTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "net.sourceforge.cruisecontrol.builders.AntScriptTest"
+-totalTests 33
+-percentRemoval 20
+
+
+
+
+
+
+
+-level
+method
+-rootFolder
+"/home/ubuntu/research"
+-relativePath
+"/cruisecontrol/main/src/net/sourceforge/cruisecontrol/builders/AntBuilder.java"
+-methodName
+isValid
+-className
+AntBuilder
+-jarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-testJarFileName
+"/home/ubuntu/research/cruisecontrol/out/artifacts/cruisecontrol/cruiseControl.jar"
+-buildCommand
+"ant -buildfile /home/ubuntu/research/cruisecontrol/main/build.xml compile"
+-runCommand
+"ant -buildfile /home/ubuntu/research/cruisecontrol/main/build.xml test"
+-packageName "net.sourceforge.cruisecontrol.builders"
+-timeoutForInfiniteLoop 3
+-testClassesFilePath
+"/home/ubuntu/research/HDD/src/Driver/CommonsValidatorTests.data"
+-testClassRelativePath
+"/cruisecontrol/main/test/net/sourceforge/cruisecontrol/builders/AntBuilderTest.java"
+-pristineFolder
+"/home/ubuntu/pristine"
+-resultsFolder
+"/home/ubuntu/results/reduced/"
+-testSuiteName "net.sourceforge.cruisecontrol.builders.AntBuilderTest"
+-totalTests 21
+-percentRemoval 20
+
